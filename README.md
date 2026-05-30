@@ -6,7 +6,7 @@ HZB's custom AI agent skills collection for Claude Code, Codex, and other AI cod
 
 | Skill | Description | Status |
 |-------|-------------|--------|
-| `multivariable-control` | 《多变量反馈控制：分析与设计》(Skogestad & Postlethwaite) 书籍技能 | In Progress |
+| `multivariable-control` | Multivariable feedback control (Skogestad & Postlethwaite): SVD, RGA, H∞, μ-analysis, robust control design | ✅ Complete |
 
 ## Usage
 
