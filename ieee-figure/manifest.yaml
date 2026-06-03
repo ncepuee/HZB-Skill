@@ -1,0 +1,39 @@
+name: ieee-figure
+version: 1.0.0
+description: >
+  Declarative manifest for IEEE Transactions figure generation.
+  Primary backend is MATLAB (power systems/PE research), with Python and R support.
+
+always_load:
+  - static/core/contract.md
+  - static/core/stance.md
+
+axes:
+  backend:
+    detect: |
+      Determine the plotting backend. If the user's input is a .m file, MATLAB
+      workspace, Simulink output, or power systems analysis, default to matlab.
+      Otherwise ask: "MATLAB, Python, or R?" Once selected, the backend is
+      exclusive for all drawing, previewing, exporting, and visual QA.
+    values:
+      matlab:  static/fragments/backend/matlab.md
+      python:  static/fragments/backend/python.md
+      r:       static/fragments/backend/r.md
+    multi: false
+
+references:
+  on_demand:
+    - condition: IEEE sizing, font, export, or editorial rules
+      path: references/ieee-style-guide.md
+    - condition: MATLAB/Python helper functions, palettes, or export utilities
+      path: references/api.md
+    - condition: specific chart recipes (Bode, Nyquist, bar, heatmap, contour, polar, 3D)
+      path: references/chart-types.md
+    - condition: typography, color theory, layout rationale
+      path: references/design-theory.md
+    - condition: multi-panel layout patterns and composition
+      path: references/common-patterns.md
+    - condition: end-to-end worked examples
+      path: references/tutorials.md
+    - condition: figure contract, review-risk checks, evidence hierarchy
+      path: references/figure-contract.md
