@@ -1,30 +1,167 @@
 ---
 name: feedback-control-dynamic-systems
-description: "Expert knowledge from Feedback Control Dynamic Systems. Use when working with related control theory, system design, or analysis problems."
+description: "Franklin, Powell, Emami-Naeini《Feedback Control of Dynamic Systems》(7th Ed.) 核心知识。涵盖经典控制、根轨迹、频域设计、状态空间、数字控制。当进行反馈控制系统分析与设计时使用。"
 metadata:
   author: HZB
-  source: "Feedback Control Dynamic Systems"
-  version: "1.0"
+  source: "Feedback Control of Dynamic Systems, 7th Edition (Franklin, Powell, Emami-Naeini, Pearson, 2014)"
+  version: "2.0"
 ---
 
-# Feedback Control Dynamic Systems Skill
+# Franklin 反馈控制系统 (第7版) Skill
 
-Expert knowledge extracted from Feedback Control Dynamic Systems.
+## 1. 反馈控制基础
 
-## Overview
+### 1.1 为什么需要反馈
+- 扰动抑制
+- 鲁棒性（对参数变化不敏感）
+- 瞬态响应改善
+- 稳态误差减小
 
-This skill provides structured knowledge from Feedback Control Dynamic Systems for use in control system analysis and design tasks.
+### 1.2 基本反馈结构
+```
+R(s) → [+] → [C(s)] → [G(s)] → Y(s)
+        ↑-                          |
+        └───────────────────────────┘
+```
+T(s) = CG/(1+CG)，S(s) = 1/(1+CG)
 
-## Key Topics
+## 2. 系统建模
 
-- Control system fundamentals
-- Analysis and design methods
-- Practical applications
+### 2.1 物理系统建模
+- 机械系统：F=ma, 弹簧 F=kx, 阻尼器 F=bv
+- 电路：KVL/KCL, 阻抗法
+- 电机：电磁转矩、反电动势
 
-## Usage
+### 2.2 线性化
+f(x) ≈ f(x₀) + (∂f/∂x)|ₓ₀·(x-x₀)
+- 在工作点附近泰勒展开
 
-When working on problems related to this book's topics, consult this skill for:
-- Theoretical foundations
-- Design methodologies
-- MATLAB/Simulation guidance
-- Common formulas and relationships
+## 3. 时域响应
+
+### 3.1 一阶响应
+y(t) = K(1-e^(-t/τ))
+- τ: 时间常数，K: 增益
+
+### 3.2 二阶响应
+ωn²/(s² + 2ζωns + ωn²)
+- 欠阻尼 (ζ<1): 振荡
+- 临界阻尼 (ζ=1): 最快无超调
+- 过阻尼 (ζ>1): 缓慢
+
+### 3.3 改善瞬态响应的手段
+- 增加阻尼 → 减小超调
+- 增大带宽 → 加快响应
+- 前馈 → 改善跟踪
+
+## 4. 根轨迹设计
+
+### 4.1 设计步骤
+1. 确定性能指标（ζ, ωn, ts）
+2. 在 s 平面标定期望极点位置
+3. 绘制根轨迹
+4. 添加补偿器使轨迹经过期望点
+
+### 4.2 超前补偿
+Gc(s) = (s+z)/(s+p), z < p
+- 增加相位超前
+- 改善瞬态响应
+- 设计方法：相位裕度法或根轨迹法
+
+### 4.3 滞后补偿
+Gc(s) = (s+z)/(s+p), z > p
+- 提高低频增益
+- 改善稳态精度
+- 不影响瞬态响应（远离原点设计）
+
+### 4.4 超前-滞后补偿
+Gc(s) = [(s+z₁)(s+z₂)] / [(s+p₁)(s+p₂)]
+- 同时改善瞬态和稳态
+
+## 5. 频域设计
+
+### 5.1 灵敏度函数
+S(s) = 1/(1+L(s)), L = CG
+- |S(jω)| < 1 → 扰动被衰减
+- |S(jω)| > 1 → 扰动被放大（灵敏度峰值）
+
+### 5.2 补偿灵敏度
+T(s) = L(s)/(1+L(s))
+- T + S = 1
+- |T| 小 → 噪声抑制
+
+### 5.3 回路整形
+- 低频高增益 → 稳态精度
+- 中频穿越 → 稳定裕度
+- 高频低增益 → 噪声抑制
+
+### 5.4 二自由度控制
+- 前馈：改善跟踪
+- 反馈：抑制扰动
+
+## 6. 状态空间设计
+
+### 6.1 状态反馈
+u = -Kx + Nr
+- 可控 → 可任意配置极点
+
+### 6.2 观测器设计
+- 全阶：x̂̇ = Ax̂ + Bu + L(y-Cx̂)
+- 降阶：只估计不可测状态
+
+### 6.3 分离原理
+K 和 L 可独立设计
+
+### 6.4 最优控制
+LQR：min ∫(x'Qx + u'Ru)dt
+- Riccati 方程求解
+- 全状态反馈 u = -Kx
+
+## 7. 数字控制
+
+### 7.1 采样与保持
+- 采样定理：fs > 2fmax
+- ZOH：采样值保持到下一采样时刻
+
+### 7.2 z 变换
+z = e^(sT)
+- 差分方程 ↔ z 变换
+
+### 7.3 数字 PID
+u(k) = Kp[e(k) + Ts/Ti·Σe(i) + Td/Ts·(e(k)-e(k-1))]
+
+### 7.4 离散化方法
+- 前向差分：s ≈ (z-1)/T
+- 后向差分：s ≈ (z-1)/(Tz)
+- 双线性变换：s ≈ (2/T)·(z-1)/(z+1)
+
+## 8. MATLAB 命令
+
+```matlab
+% 根轨迹
+rlocus(sys); rlocfind(sys);
+
+% Bode
+bode(sys); margin(sys);
+
+% 阶跃响应
+step(sys); stepinfo(sys);
+
+% 状态空间
+K = place(A, B, p);  % 极点配置
+L = place(A', C', p)';  % 观测器
+[K, S, e] = lqr(A, B, Q, R);  % LQR
+
+% 离散化
+sysd = c2d(sys, Ts, 'zoh');
+```
+
+## 9. 关键公式
+
+| 公式 | 表达式 | 用途 |
+|------|--------|------|
+| 闭环传递 | T = CG/(1+CG) | 反馈系统 |
+| 灵敏度 | S = 1/(1+L) | 扰动抑制 |
+| 超前补偿 | (s+z)/(s+p), z<p | 改善瞬态 |
+| 滞后补偿 | (s+z)/(s+p), z>p | 改善稳态 |
+| LQR | u = -Kx, ARE | 最优控制 |
+| 双线性变换 | s=(2/T)(z-1)/(z+1) | 离散化 |

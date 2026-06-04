@@ -1,30 +1,180 @@
 ---
-name: modern-control-engineering-ogata
-description: "Expert knowledge from Modern Control Engineering Ogata. Use when working with related control theory, system design, or analysis problems."
+name: ogata-modern-control-engineering
+description: "Katsuhiko Ogata《Modern Control Engineering》(5th Ed.) 核心知识。涵盖传递函数、状态空间、根轨迹、频域分析、PID 控制、状态反馈设计。当进行经典/现代控制系统分析与设计时使用。"
 metadata:
   author: HZB
-  source: "Modern Control Engineering Ogata"
-  version: "1.0"
+  source: "Modern Control Engineering, 5th Edition (Katsuhiko Ogata, Prentice Hall, 2010)"
+  version: "2.0"
 ---
 
-# Modern Control Engineering Ogata Skill
+# Ogata 现代控制工程 (第5版) Skill
 
-Expert knowledge extracted from Modern Control Engineering Ogata.
+## 1. 数学建模
 
-## Overview
+### 1.1 传递函数
+G(s) = Y(s)/U(s) = N(s)/D(s)
+- 零点：N(s)=0 的根
+- 极点：D(s)=0 的根
 
-This skill provides structured knowledge from Modern Control Engineering Ogata for use in control system analysis and design tasks.
+### 1.2 状态空间
+```
+ẋ = Ax + Bu
+y = Cx + Du
+```
+G(s) = C(sI-A)⁻¹B + D
 
-## Key Topics
+### 1.3 建模转换
+- 微分方程 → 传递函数（拉普拉斯变换）
+- 传递函数 → 状态空间（可控/可观标准型）
+- 状态空间 → 传递函数
 
-- Control system fundamentals
-- Analysis and design methods
-- Practical applications
+## 2. 瞬态响应分析
 
-## Usage
+### 2.1 一阶系统
+G(s) = K/(Ts+1)
+- 时间常数 T：响应到 63.2% 的时间
+- 调节时间（2%）：t_s ≈ 4T
 
-When working on problems related to this book's topics, consult this skill for:
-- Theoretical foundations
-- Design methodologies
-- MATLAB/Simulation guidance
-- Common formulas and relationships
+### 2.2 二阶系统
+G(s) = ωn²/(s² + 2ζωn·s + ωn²)
+- 超调量：Mp = e^(-πζ/√(1-ζ²))
+- 峰值时间：tp = π/(ωn√(1-ζ²))
+- 调节时间（2%）：ts ≈ 4/(ζωn)
+- ζ<1 欠阻尼，ζ=1 临界阻尼，ζ>1 过阻尼
+
+### 2.3 Routh 稳定判据
+- 列写 Routh 表
+- 第一列元素全正 → 稳定
+- 第一列符号变化次数 = RHP 极点数
+
+### 2.4 稳态误差
+| 输入 | 0型 | I型 | II型 |
+|------|-----|-----|------|
+| 阶跃 1/s | 1/(1+Kp) | 0 | 0 |
+| 斜坡 1/s² | ∞ | 1/Kv | 0 |
+| 加速度 1/s³ | ∞ | ∞ | 1/Ka |
+
+## 3. 根轨迹法
+
+### 3.1 绘制规则
+1. 起点（K=0）：开环极点
+2. 终点（K→∞）：开环零点（无穷远处）
+3. 分支数 = max(n_p, n_z)
+4. 实轴上：右侧实极点+零点总数为奇数
+5. 渐近线角度：(2k+1)×180°/(n_p-n_z)
+6. 渐近线交点：σ = (Σp-Σz)/(n_p-n_z)
+7. 分离点：dK/ds = 0
+8. 出射角/入射角
+
+### 3.2 设计应用
+- 主导极点法：选择期望闭环极点位置
+- 超前补偿：增加零点，吸引根轨迹
+- 滞后补偿：改善稳态性能
+
+## 4. 频率响应法
+
+### 4.1 Bode 图
+- 斜率变化：极点 -20dB/dec，零点 +20dB/dec
+- 相位：极点 -90°，零点 +90°
+- 转折频率：ω = 1/T
+
+### 4.2 Nyquist 稳定判据
+Z = N + P
+- Z: 闭环 RHP 极点数（期望 0）
+- N: Nyquist 曲线绕 (-1,j0) 的净圈数
+- P: 开环 RHP 极点数
+
+### 4.3 增益裕度与相位裕度
+- GM = -20log|G(jωπ)| (dB)，ωπ: 相位穿越频率
+- PM = 180° + ∠G(jωc)，ωc: 增益穿越频率
+- 典型要求：PM ≥ 45°，GM ≥ 6dB
+
+### 4.4 补偿设计
+**超前补偿**：Gc = Kc(αTs+1)/(Ts+1), α>1
+- 最大超前角：φmax = arcsin((α-1)/(α+1))
+
+**滞后补偿**：Gc = Kc(βTs+1)/(Ts+1), β<1
+- 提高低频增益，减小稳态误差
+
+**滞后-超前补偿**：兼具两者优点
+
+## 5. PID 控制器
+
+### 5.1 标准 PID
+u(t) = Kp·e(t) + Ki·∫e(τ)dτ + Kd·de/dt
+
+### 5.2 Ziegler-Nichols 整定
+**方法一（反应曲线法）**：
+- 测量开环阶跃响应的 L（延迟）和 T（时间常数）
+- P：Kp = T/L
+- PI：Kp = 0.9T/L, Ti = 3.33L
+- PID：Kp = 1.2T/L, Ti = 2L, Td = 0.5L
+
+**方法二（临界比例法）**：
+- 增大 Kp 直到等幅振荡，记录 Ku（临界增益）和 Tu（振荡周期）
+- P：Kp = 0.5Ku
+- PI：Kp = 0.45Ku, Ti = 0.83Tu
+- PID：Kp = 0.6Ku, Ti = 0.5Tu, Td = 0.125Tu
+
+### 5.3 二自由度控制
+- 同时优化跟踪性能和扰动抑制性能
+
+## 6. 状态空间方法
+
+### 6.1 可控性
+可控性矩阵 Co = [B AB A²B ... A^(n-1)B]
+- 系统完全可控 ⟺ rank(Co) = n
+
+### 6.2 可观性
+可观性矩阵 Ob = [C; CA; CA²; ...; CA^(n-1)]
+- 系统完全可观 ⟺ rank(Ob) = n
+
+### 6.3 状态反馈极点配置
+u = -Kx，K 通过 Ackermann 公式或直接比较法计算
+
+### 6.4 状态观测器
+全阶观测器：x̂̇ = Ax̂ + Bu + L(y - Cx̂)
+- L 使 (A-LC) 稳定
+
+降阶观测器：只估计不可直接测量的状态
+
+### 6.5 分离定理
+状态反馈增益 K 和观测器增益 L 可独立设计
+
+## 7. MATLAB 命令速查
+
+```matlab
+% 传递函数
+sys = tf([1], [1 2 1]);
+
+% 瞬态响应
+step(sys); impulse(sys); lsim(sys, u, t);
+
+% 根轨迹
+rlocus(sys); sgrid(0.5, [1 2 3 4]);
+
+% Bode 图
+bode(sys); margin(sys);
+
+% Nyquist 图
+nyquist(sys);
+
+% 状态空间
+sys_ss = ss(A, B, C, D);
+Co = ctrb(A, B); Ob = obsv(A, C);
+K = place(A, B, [-1 -2 -3]);
+L = place(A', C', [-10 -20])';
+```
+
+## 8. 关键公式速查
+
+| 公式 | 表达式 | 用途 |
+|------|--------|------|
+| 传递函数 | G(s) = Y(s)/U(s) | SISO 系统 |
+| 特征方程 | 1 + G(s)H(s) = 0 | 闭环极点 |
+| 超调量 | Mp = e^(-πζ/√(1-ζ²)) | 二阶系统 |
+| Nyquist | Z = N + P | 频域稳定性 |
+| Routh | 第一列符号变化 | 时域稳定性 |
+| GM/PM | -20log\|G(jωπ)\| / 180°+∠G(jωc) | 稳定裕度 |
+| Ackermann | K = [0..1]Co⁻¹αd(A) | 极点配置 |
+| 观测器 | x̂̇ = Ax̂ + Bu + L(y-Cx̂) | 状态估计 |

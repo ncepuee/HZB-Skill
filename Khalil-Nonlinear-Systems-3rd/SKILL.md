@@ -1,30 +1,150 @@
 ---
-name: khalil-nonlinear-systems-3rd
-description: "Expert knowledge from Khalil Nonlinear Systems 3rd. Use when working with related control theory, system design, or analysis problems."
+name: khalil-nonlinear-systems
+description: "Hassan K. Khalil《Nonlinear Systems》(3rd Ed.) 核心知识。涵盖 Lyapunov 稳定性、输入输出稳定性、无源性、反馈线性化、奇异摄动、中心流形等。当处理非线性系统分析、稳定性证明、反馈控制设计时使用。"
 metadata:
   author: HZB
-  source: "Khalil Nonlinear Systems 3rd"
-  version: "1.0"
+  source: "Nonlinear Systems, 3rd Edition (Hassan K. Khalil, Prentice Hall, 2002)"
+  version: "2.0"
 ---
 
-# Khalil Nonlinear Systems 3rd Skill
+# Khalil 非线性系统 (第3版) Skill
 
-Expert knowledge extracted from Khalil Nonlinear Systems 3rd.
+## 1. 非线性系统基本概念
 
-## Overview
+### 1.1 系统模型
+```
+ẋ = f(t, x, u)    y = g(t, x, u)
+```
+- 自治系统：ẋ = f(x)（不显含 t）
+- 非自治系统：ẋ = f(t, x)
+- 平衡点：f(x*) = 0
 
-This skill provides structured knowledge from Khalil Nonlinear Systems 3rd for use in control system analysis and design tasks.
+### 1.2 典型非线性现象
+- 多重平衡点、极限环（自持振振）、分岔、混沌、有限逃逸时间
 
-## Key Topics
+## 2. Lyapunov 稳定性理论（核心）
 
-- Control system fundamentals
-- Analysis and design methods
-- Practical applications
+### 2.1 稳定性定义
+- **稳定**：∀ε>0, ∃δ>0, ‖x(0)‖<δ → ‖x(t)‖<ε
+- **渐近稳定**：稳定 + x(t)→0
+- **全局渐近稳定**：渐近稳定 + δ 任意大
+- **指数稳定**：‖x(t)‖ ≤ α‖x(0)‖e^(-λt)
 
-## Usage
+### 2.2 Lyapunov 直接法
 
-When working on problems related to this book's topics, consult this skill for:
-- Theoretical foundations
-- Design methodologies
-- MATLAB/Simulation guidance
-- Common formulas and relationships
+**定理 4.1（自治系统）**：V(0)=0, V(x)>0 (x≠0), V̇(x)≤0 → 稳定；V̇(x)<0 → 渐近稳定
+
+**定理 4.5（非自治系统）**：α₁(‖x‖)≤V(t,x)≤α₂(‖x‖), V̇≤-W₃(x) → 全局一致渐近稳定
+
+### 2.3 比较函数
+- **K 类**：α(0)=0, 连续严格递增
+- **K∞ 类**：K 类 + α(r)→∞
+- **KL 类**：β(r,s) 对 r∈K，对 s 递减趋于 0
+
+### 2.4 LaSalle 不变性原理
+设 Ω 紧集，V̇≤0，S={V̇=0}，M 为 S 中最大不变集 → Ω 内解趋于 M
+
+### 2.5 指数稳定性
+α₁‖x‖^p ≤ V ≤ α₂‖x‖^p, V̇ ≤ -α₃‖x‖^p → 指数稳定，收敛率 ≥ (α₃/α₂)/p
+
+## 3. 输入-状态稳定性 (ISS)
+
+### 3.1 ISS 定义
+‖x(t)‖ ≤ β(‖x(0)‖, t) + γ(sup‖u‖)
+
+### 3.2 ISS-Lyapunov 函数
+V̇ ≤ -α(‖x‖) + σ(‖u‖), α∈K∞, σ∈K → ISS
+
+### 3.3 ISS 小增益
+γ₁∘γ₂ < id → 互联 ISS
+
+## 4. 输入-输出稳定性
+
+### 4.1 小增益定理
+‖G₁‖·‖G₂‖ < 1 → 闭环 Lp 稳定
+
+### 4.2 L₂ 增益
+sup ‖y‖₂/‖u‖₂
+
+## 5. 无源性
+
+### 5.1 定义
+- 无源：∫uᵀy dt ≥ 0
+- 严格无源：∫uᵀy dt ≥ δ∫‖y‖² dt
+
+### 5.2 KYP 引理
+G(s) 严格正实 ⟺ ∃P>0, Q>0: PA+A'P=-Q, PB=C'
+
+### 5.3 无源性定理
+前向严格无源 + 反馈无源 → 闭环 L₂ 稳定
+
+## 6. 频域分析
+
+### 6.1 圆判据
+扇区非线性 k₁≤φ(y)/y≤k₂：Nyquist 不进入以 -1/k₁, -1/k₂ 为直径的圆
+
+### 6.2 Popov 判据
+对 φ∈[0,k]：Re[G(jω)] + ω·Im[G(jω)] 满足 Popov 不等式
+
+### 6.3 描述函数法
+N(A) = Y₁/A，自振条件：1 + N(A)G(jω) = 0
+
+## 7. 中心流形定理
+
+对 ẋ = Ax + f(x)，A 有零实部特征值：
+- 存在局部不变流形 Wᶜ：x = h(η)
+- 流形上的动态决定原点稳定性
+
+## 8. 扰动系统
+
+### 8.1 消失扰动
+原系统渐近稳定 + 消失扰动 → 局部渐近稳定
+
+### 8.2 非消失扰动
+ISS 保证：‖x‖ ≤ γ(δ₀)（最终有界）
+
+### 8.3 互联系统
+小增益条件：γ₁(γ₂(r)) < r → 全局渐近稳定
+
+## 9. 奇异摄动
+
+### 9.1 标准模型
+ẋ = f(x,z,ε), εż = g(x,z,ε)
+
+### 9.2 Tikhonov 定理
+慢流形 g(x,z*,0)=0，慢/快子系统均渐近稳定 → 原系统渐近稳定（ε 足够小）
+
+### 9.3 组合 Lyapunov 函数
+V = V₁(x) + V₂(z-h(x))
+
+## 10. 反馈线性化
+
+### 10.1 相对度
+LgLfᵏ⁻¹h = 0 (k=1,...,r-1), LgLfʳ⁻¹h ≠ 0
+
+### 10.2 输入-输出线性化
+y^(r) = Lfʳh + LgLfʳ⁻¹h·u，选 v 使 y^(r)=v
+
+### 10.3 零动态
+- 最小相位：零动态渐近稳定
+- 非最小相位：零动态不稳定
+
+### 10.4 设计步骤
+1. 计算相对度 r
+2. r=n → 全状态线性化
+3. r<n → 输入输出线性化 + 分析零动态
+4. 设计线性控制器
+5. 变换回原坐标
+
+## 11. 关键公式速查
+
+| 公式 | 表达式 | 用途 |
+|------|--------|------|
+| Lyapunov | V>0, V̇≤0 | 稳定性 |
+| LaSalle | V̇≤0, M={V̇=0} | 渐近稳定 |
+| ISS | V̇≤-α(‖x‖)+σ(‖u‖) | 输入状态稳定 |
+| 小增益 | ‖G₁‖·‖G₂‖<1 | 互联稳定 |
+| KYP | PA+A'P=-Q, PB=C' | 正实性 |
+| 相对度 | LgLfᵏh=0, k<r | 反馈线性化 |
+| 描述函数 | N(A)=Y₁/A | 自振分析 |
+| 奇异摄动 | εż=g, 慢流形 | 多时间尺度 |

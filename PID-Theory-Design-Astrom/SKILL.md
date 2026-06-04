@@ -1,30 +1,142 @@
 ---
 name: pid-theory-design-astrom
-description: "Expert knowledge from PID Theory Design Astrom. Use when working with related control theory, system design, or analysis problems."
+description: "Karl J. Åström《PID Controllers》核心知识。涵盖 PID 理论、整定方法、实现技术、高级 PID 结构。当设计、整定或分析 PID 控制器时使用。"
 metadata:
   author: HZB
-  source: "PID Theory Design Astrom"
-  version: "1.0"
+  source: "PID Controllers: Theory, Design, and Tuning (Karl J. Åström, Tore Hägglund)"
+  version: "2.0"
 ---
 
-# PID Theory Design Astrom Skill
+# Åström PID 控制器 Skill
 
-Expert knowledge extracted from PID Theory Design Astrom.
+## 1. PID 控制器基础
 
-## Overview
+### 1.1 标准形式
+```
+并联型：u = Kp(e + 1/Ti·∫e dt + Td·de/dt)
+串联型：u = Kp(1 + 1/(Ti·s))(1 + Td·s)·e
+```
 
-This skill provides structured knowledge from PID Theory Design Astrom for use in control system analysis and design tasks.
+### 1.2 各环节作用
+| 环节 | 作用 | 优点 | 缺点 |
+|------|------|------|------|
+| P | 比例控制 | 快速响应 | 有稳态误差 |
+| I | 积分控制 | 消除稳态误差 | 增加超调、降低稳定裕度 |
+| D | 微分控制 | 预测趋势、抑制超调 | 放大高频噪声 |
 
-## Key Topics
+### 1.3 传递函数形式
+并联型：C(s) = Kp(1 + 1/(Ti·s) + Td·s)
+串联型：C(s) = Kp(1 + 1/(Ti·s))(1 + Td·s)/(1 + Td·s/N)
+- N: 微分滤波系数（典型 5~10）
 
-- Control system fundamentals
-- Analysis and design methods
-- Practical applications
+## 2. 整定方法
 
-## Usage
+### 2.1 Ziegler-Nichols 方法
+**临界比例法**：
+1. 设 Ti=∞, Td=0
+2. 增大 Kp 直到等幅振荡
+3. 记录 Ku（临界增益）和 Tu（振荡周期）
 
-When working on problems related to this book's topics, consult this skill for:
-- Theoretical foundations
-- Design methodologies
-- MATLAB/Simulation guidance
-- Common formulas and relationships
+| 控制器 | Kp | Ti | Td |
+|--------|-----|------|------|
+| P | 0.5Ku | ∞ | 0 |
+| PI | 0.45Ku | 0.83Tu | 0 |
+| PID | 0.6Ku | 0.5Tu | 0.125Tu |
+
+**反应曲线法**：
+1. 测开环阶跃响应
+2. 确定延迟 L 和斜率 R
+
+| 控制器 | Kp | Ti | Td |
+|--------|------|------|------|
+| P | 1/(RL) | ∞ | 0 |
+| PI | 0.9/(RL) | 3.33L | 0 |
+| PID | 1.2/(RL) | 2L | 0.5L |
+
+### 2.2 Lambda 整定法
+选择闭环时间常数 λ：
+- Kp = (2λ+T)/(2λK·L)
+- Ti = T + L²/(2λ+T)
+- λ > L（保证鲁棒性）
+
+### 2.3 IMC（内模控制）整定
+- 选择期望闭环响应 τ
+- Kp = T/(K(τ+L))
+- Ti = T
+- Td = 0（无超调时）
+
+### 2.4 Cohen-Coon 方法
+Kp = (1/(RL))·(1 + L/(3T))
+Ti = L·(30+3L/T)/(9+20L/T)
+Td = L·(4/(11+2L/T))
+
+## 3. 实际实现问题
+
+### 3.1 积分饱和（Anti-Windup）
+**条件**：执行器饱和时积分项持续增长
+**解决方案**：
+- 积分限幅：限制积分项范围
+- 反馈抗饱和：u_sat - u 通过增益 Kb 反馈
+- 条件积分：仅在误差小时积分
+
+### 3.2 微分项实现
+**问题**：纯微分放大高频噪声
+**解决方案**：
+- 不完全微分：Td·s/(1 + Td·s/N)
+- 先微分测量值而非误差：d(PV)/dt 而非 d(SP-PV)/dt
+- 典型 N = 5~10
+
+### 3.3 增量式 PID
+Δu = Kp[(e(k)-e(k-1)) + Ts/Ti·e(k) + Td/Ts·(e(k)-2e(k-1)+e(k-2))]
+- 无积分累积问题
+- 手动/自动切换无扰动
+
+## 4. 高级 PID 结构
+
+### 4.1 二自由度 PID
+- 设定值加权：比例和微分作用于加权设定值
+- β·SP + (1-β)·PV, β∈[0,1]
+- 减小设定值变化引起的超调
+
+### 4.2 带死区的 PID
+误差小于 δ 时输出为零：|e| < δ → u = 0
+
+### 4.3 增益调度 PID
+根据运行条件切换 PID 参数
+- 多个工作点设计
+- 平滑切换（插值）
+
+### 4.4 串级控制
+- 主控制器输出作为副控制器设定值
+- 副回路快速响应，主回路消除稳态误差
+
+## 5. PID 性能指标
+
+### 5.1 时域指标
+- 上升时间 tr
+- 超调量 Mp
+- 调节时间 ts
+- 稳态误差 ess
+
+### 5.2 积分性能指标
+- IAE = ∫|e| dt
+- ISE = ∫e² dt
+- ITAE = ∫t|e| dt
+- ITSE = ∫te² dt
+
+### 5.3 鲁棒性指标
+- 增益裕度 GM ≥ 6dB
+- 相位裕度 PM ≥ 45°
+- 灵敏度峰值 Ms ≤ 2.0
+
+## 6. 关键公式
+
+| 公式 | 表达式 | 用途 |
+|------|--------|------|
+| PID 并联 | u = Kp(e + 1/Ti·∫e + Td·ė) | 标准形式 |
+| 临界增益 | Ku, Tu | Ziegler-Nichols |
+| Lambda 整定 | Kp = (2λ+T)/(2λKL) | 鲁棒整定 |
+| IMC | Kp = T/(K(τ+L)) | 内模控制 |
+| Anti-Windup | Kb(u_sat-u) | 积分抗饱和 |
+| 不完全微分 | Td·s/(1+Td·s/N) | 噪声抑制 |
+| IAE | ∫\|e\| dt | 性能指标 |
