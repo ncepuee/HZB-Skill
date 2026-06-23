@@ -46,6 +46,26 @@ IEEE_LINES = {'-','--', '-.', ':'};
 IEEE_MARKERS = {'o','s','d','^','v','<','>','p','h'};
 ```
 
+## Optional slanCM palettes
+
+When the third-party `slanCM` function is available on the MATLAB path, it may
+be used as an alternative palette source. Prefer restrained categorical
+palettes such as `Pastel1`, `Pastel2`, `Set2`, `Paired`, or `Dark2`, then verify
+contrast at the final 90 mm figure width and in grayscale. Do not hard-code a
+machine-specific `slanCM` directory into reusable plotting functions.
+
+```matlab
+N = 5;
+if exist('slanCM','file') == 2
+    colors = slanCM('Pastel2', N);
+else
+    colors = ieee_colors(N);
+end
+```
+
+Use sequential or diverging `slanCM` maps only when the data semantics require
+ordered magnitude or a meaningful center point. Avoid rainbow-like maps.
+
 ## Single-figure creation template
 
 ```matlab
@@ -168,23 +188,37 @@ ax.ThetaTickLabel = {'0','30','60','90','120','150','180','210','240','270','300
 save_ieee(fig, 'Fig6_Polar');
 ```
 
-## Bar chart template
+## Visio-editable bar chart template
+
+For MATLAB figures intended to be pasted into Visio and ungrouped, draw bars
+with individual `rectangle` objects instead of `bar`/`barh`. Use a 90 mm figure
+width, `painters`, `grid off`, and a light-grey thin edge.
 
 ```matlab
-fig = figure('Color','w', 'Units','inches', 'Position', [3 3 3.5 2.6]);
+fig = figure('Color','w','Units','centimeters', ...
+    'Position',[3 3 9 7], 'Renderer','painters');
 ax = axes; hold(ax, 'on');
 
-b = bar(data_matrix, 0.8, 'EdgeColor', 'none');
-for k = 1:length(b)
-    b(k).FaceColor = IEEE_COLORS_list(k,:);
+width = 0.7;
+for k = 1:numel(values)
+    value = values(k);
+    rectangle(ax,'Position',[k-width/2,min(0,value),width,abs(value)], ...
+        'FaceColor',colors(k,:), ...
+        'EdgeColor',[0.78 0.78 0.78], ...
+        'LineWidth',0.3);
 end
 
-set(ax, 'FontName', 'Times New Roman', 'FontSize', 8, 'LineWidth', 0.6, 'Box', 'on', 'TickDir', 'in');
-set(ax, 'XTickLabel', labels);
-ylabel('Value', 'FontSize', 9);
-yline(0, '-', 'Color', [0.7 0.7 0.7], 'LineWidth', 0.5, 'HandleVisibility', 'off');
-save_ieee(fig, 'Fig7_Bar');
+set(ax,'XLim',[0.5 numel(values)+0.5], ...
+    'XTick',1:numel(values),'XTickLabel',labels, ...
+    'FontName','Times New Roman','FontSize',8, ...
+    'LineWidth',0.6,'Box','on','TickDir','in');
+yline(ax,0,'-','Color',[0.5 0.5 0.5],'LineWidth',0.5);
+grid(ax,'off');
 ```
+
+For horizontal ranked bars, use
+`Position=[min(0,value), k-height/2, abs(value), height]`.
+Prefer `copygraphics(gcf,'ContentType','vector')` for clipboard transfer to Visio.
 
 ## 3D surface template
 

@@ -88,26 +88,34 @@ save_ieee(fig, 'Fig_StabilityMap', 4.5, 3.5);
 ## 5. Participation factor bar chart
 
 ```matlab
-fig = figure('Color','w','Units','inches','Position',[3 3 3.5 2.6]);
+fig = figure('Color','w','Units','centimeters', ...
+    'Position',[3 3 9 7], 'Renderer','painters');
 ax = axes; hold(ax,'on');
 
-h = barh(ax, data, 0.6, 'EdgeColor', 'none');
-% Color positive (blue) vs negative (red)
-for k = 1:length(data)
-    if data(k) >= 0
-        h.FaceColor = 'flat';
-        h.CData(k,:) = IEEE_COLORS.blue;
-    else
-        h.CData(k,:) = IEEE_COLORS.vermillion;
-    end
+height = 0.62;
+for k = 1:numel(data)
+    value = data(k);
+    color = IEEE_COLORS.blue;
+    if value > 0, color = IEEE_COLORS.vermillion; end
+    rectangle(ax,'Position', ...
+        [min(0,value),k-height/2,abs(value),height], ...
+        'FaceColor',color, ...
+        'EdgeColor',[0.78 0.78 0.78], ...
+        'LineWidth',0.3);
 end
 
-xline(ax, 0, '-', 'Color', 'k', 'LineWidth', 0.8);
-set(ax, 'YTickLabel', labels, 'FontName','Times New Roman','FontSize',8);
-set(ax, 'LineWidth',0.6,'Box','on','TickDir','in');
+xline(ax,0,'-','Color',[0.5 0.5 0.5],'LineWidth',0.5);
+set(ax,'YLim',[0.5 numel(data)+0.5], ...
+    'YTick',1:numel(data),'YTickLabel',labels, ...
+    'FontName','Times New Roman','FontSize',8, ...
+    'LineWidth',0.6,'Box','on','TickDir','in');
 xlabel(ax, 'Participation Index', 'FontSize', 9);
-save_ieee(fig, 'Fig_Participation');
+grid(ax,'off');
 ```
+
+Use this `rectangle` pattern for Visio-editable IEEE bars. It keeps each bar
+as a separate vector object after clipboard paste and ungrouping. Keep the
+figure width at 90 mm, avoid dark bar borders, and do not enable grids.
 
 ## 6. Compass / sensitivity plot
 

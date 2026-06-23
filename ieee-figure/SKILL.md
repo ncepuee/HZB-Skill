@@ -9,7 +9,7 @@ description: >-
   Supports MATLAB native plotting (primary), matplotlib/seaborn, and ggplot2.
   Triggers on: IEEE figure, IEEE style, transaction figure, IEEE plot, 论文配图,
   科研绘图, 画图, 出图, 论文图表, IEEE格式, 期刊图, 会议图.
-version: 1.0.0
+version: 1.0.1
 author: HZB
 ---
 

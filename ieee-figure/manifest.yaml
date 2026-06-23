@@ -1,5 +1,5 @@
 name: ieee-figure
-version: 1.0.0
+version: 1.0.1
 description: >
   Declarative manifest for IEEE Transactions figure generation.
   Primary backend is MATLAB (power systems/PE research), with Python and R support.
