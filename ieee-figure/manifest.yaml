@@ -1,5 +1,5 @@
 name: ieee-figure
-version: 1.0.1
+version: 1.0.2
 description: >
   Declarative manifest for IEEE Transactions figure generation.
   Primary backend is MATLAB (power systems/PE research), with Python and R support.
@@ -27,7 +27,7 @@ references:
       path: references/ieee-style-guide.md
     - condition: MATLAB/Python helper functions, palettes, or export utilities
       path: references/api.md
-    - condition: specific chart recipes (Bode, Nyquist, bar, heatmap, contour, polar, 3D)
+    - condition: specific chart recipes (Bode, two-eigenvalue Nyquist, bar, heatmap, contour, polar, 3D)
       path: references/chart-types.md
     - condition: typography, color theory, layout rationale
       path: references/design-theory.md

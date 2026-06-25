@@ -9,8 +9,6 @@ description: >-
   Supports MATLAB native plotting (primary), matplotlib/seaborn, and ggplot2.
   Triggers on: IEEE figure, IEEE style, transaction figure, IEEE plot, 论文配图,
   科研绘图, 画图, 出图, 论文图表, IEEE格式, 期刊图, 会议图.
-version: 1.0.1
-author: HZB
 ---
 
 # IEEE Transactions Figure — Router
@@ -57,4 +55,5 @@ Apply in order:
 Open `references/ieee-style-guide.md` when you need precise IEEE sizing, font, or
 export rules. Open `references/api.md` for MATLAB/Python helper functions. Open
 `references/chart-types.md` for specific chart recipes (Bode, Nyquist, bar, heatmap,
-contour, polar, 3D surface, etc.).
+contour, polar, 3D surface, etc.). For a MATLAB 2×2 return-ratio eigenvalue
+Nyquist plot intended for Visio editing, use its dedicated two-eigenvalue recipe.

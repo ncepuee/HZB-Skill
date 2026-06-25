@@ -156,3 +156,63 @@ set(ax, 'FontName','Times New Roman','FontSize',8,'LineWidth',0.6);
 xlabel(ax, 'X', 'FontSize', 9); ylabel(ax, 'Y', 'FontSize', 9); zlabel(ax, 'Z', 'FontSize', 9);
 save_ieee(fig, 'Fig_3D', 4.5, 3.5);
 ```
+
+## 8. Two-eigenvalue Nyquist plot for a 2×2 return-ratio matrix
+
+Use this compact style for two continuously sorted eigenvalues. It is tuned for
+MATLAB-to-Visio vector editing.
+
+```matlab
+function plot_eigen_nyquist_pair(fig_num,eig_curves,figure_name,colors,fixed_limit)
+% eig_curves: 2×N complex matrix, one continuously sorted mode per row.
+% fixed_limit: [] for per-mode autoscale, or 2 for x/y limits [-2,2].
+
+figure(fig_num); clf;
+fig=gcf;
+set(fig,'Name',sprintf('Figure %d - %s',fig_num,figure_name), ...
+    'NumberTitle','off','Color','w','Units','centimeters', ...
+    'Position',[5,5,8,4],'PaperPositionMode','auto', ...
+    'InvertHardcopy','off','Renderer','painters');
+
+positions={[0.08,0.10,0.40,0.90],[0.58,0.10,0.40,0.90]};
+t=linspace(0,2*pi,1000);
+
+for mode=1:2
+    ax=axes('Parent',fig,'Position',positions{mode});
+    hold(ax,'on');
+    curve=eig_curves(mode,:);
+    plot(ax,real(curve),imag(curve),'-', ...
+        'Color',colors(mode,:),'LineWidth',0.85);
+
+    if isempty(fixed_limit)
+        finite_curve=curve(isfinite(curve));
+        lim=max([1.2;abs(real(finite_curve(:)));abs(imag(finite_curve(:)))])*1.05;
+    else
+        lim=fixed_limit;
+    end
+    xlim(ax,[-lim lim]); ylim(ax,[-lim lim]);
+
+    plot(ax,cos(t),sin(t),'r-','LineWidth',0.5,'HandleVisibility','off');
+    plot(ax,[0 0],ylim(ax),'-.','Color',[0.5 0.5 0.5], ...
+        'LineWidth',0.5,'HandleVisibility','off');
+    plot(ax,xlim(ax),[0 0],'-.','Color',[0.5 0.5 0.5], ...
+        'LineWidth',0.5,'HandleVisibility','off');
+    line(ax,[-1 -1],ylim(ax),'LineStyle','-.','Color',[0.5 0.5 0.5], ...
+        'LineWidth',0.5,'HandleVisibility','off');
+
+    text(ax,0.05,0.08,sprintf('Eigen%d',mode), ...
+        'Units','normalized','FontName','Times New Roman','FontSize',7, ...
+        'Color',colors(mode,:),'HorizontalAlignment','left');
+    xlabel(ax,'Real','FontName','Times New Roman','FontSize',7);
+    ylabel(ax,'Imag','FontName','Times New Roman','FontSize',7);
+    set(ax,'DataAspectRatio',[1 1 1],'FontName','Times New Roman', ...
+        'FontSize',7,'LineWidth',0.5,'Box','on','TickDir','in');
+end
+end
+```
+
+- Do not label return-ratio Nyquist axes with `s^{-1}`; use `Real` and `Imag`.
+- Keep identification in the figure window `Name`; do not add `title` or `sgtitle`.
+- Use `fixed_limit=2` when the unit-circle and `(-1,j0)` neighborhood are the evidence.
+- Keep reference lines out of legends with `HandleVisibility='off'`.
+- Use `copygraphics(gcf,'ContentType','vector')` or EMF/PDF for Visio editing.
