@@ -2,7 +2,7 @@
 
 Publication-quality IEEE Transactions figure generation for MATLAB, Python, and R.
 
-Current version: **v1.0.2**
+Current version: **v1.0.3**
 
 ## Features
 
@@ -12,6 +12,7 @@ Current version: **v1.0.2**
 - Optional `slanCM` palettes with an IEEE-safe fallback
 - Visio-editable MATLAB bar charts using individual `rectangle` objects
 - Visio-editable two-eigenvalue Nyquist figures for 2×2 return-ratio matrices
+- Compact 2×2 magnitude/phase Bode figures for two continuously sorted eigenvalues
 - Pre-built templates for: Bode, Nyquist, pole maps, heatmaps, contour, bar, compass, 3D surface
 - One-click export: PDF (vector) + EMF (editable) + TIFF (600 dpi)
 - Single-column (3.5 in) and double-column (7.16 in) sizing
@@ -81,6 +82,7 @@ save_ieee(fig, 'Fig1_Impedance');
 
 | Version | Changes |
 |---|---|
+| v1.0.3 | Added the validated two-eigenvalue Bode style: 8 cm × 6 cm canvas, compact 2×2 axes ending at 0.95 normalized height, 7 pt Times New Roman, 0.5 pt axes, 0.85 pt curves, logarithmic minor ticks, fixed decade ticks, phase ticks, in-panel eigenvalue labels, and `painters` output for Visio. |
 | v1.0.2 | Added the validated MATLAB two-eigenvalue Nyquist style: 8 cm × 4 cm canvas, fixed two-panel layout, `painters` rendering, editable Visio output, 7 pt Times New Roman labels, 0.5 pt axes, 0.85 pt eigenvalue curves, unit-circle references, hidden reference-line legends, and in-axis `Eigen1/Eigen2` labels. |
 | v1.0.1 | Added Visio-editable `rectangle` bar charts, 90 mm MATLAB figure sizing, light bar borders, grid-off guidance, and optional `slanCM` palettes. |
 | v1.0.0 | Initial IEEE figure workflow with MATLAB, Python, and R backends, core figure rules, chart templates, palettes, and export helpers. |

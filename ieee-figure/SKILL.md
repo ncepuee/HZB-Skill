@@ -55,5 +55,6 @@ Apply in order:
 Open `references/ieee-style-guide.md` when you need precise IEEE sizing, font, or
 export rules. Open `references/api.md` for MATLAB/Python helper functions. Open
 `references/chart-types.md` for specific chart recipes (Bode, Nyquist, bar, heatmap,
-contour, polar, 3D surface, etc.). For a MATLAB 2×2 return-ratio eigenvalue
-Nyquist plot intended for Visio editing, use its dedicated two-eigenvalue recipe.
+contour, polar, 3D surface, etc.). For MATLAB 2×2 return-ratio eigenvalue
+Nyquist or eigenvalue Bode plots intended for Visio editing, use the dedicated
+two-eigenvalue recipes.

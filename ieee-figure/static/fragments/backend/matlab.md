@@ -254,12 +254,11 @@ yl = ylim; patch(ax, [0 0 0 0], [yl(1) yl(2) yl(2) yl(1)], ...
 save_ieee(fig, 'Fig9_Poles');
 ```
 
-## Two-eigenvalue Nyquist figures
+## Two-eigenvalue Nyquist and Bode figures
 
-For a 2×2 return-ratio matrix, use the dedicated recipe in
-`references/chart-types.md`. It fixes the two axes at identical physical sizes,
-uses `painters` for Visio-editable output, excludes reference objects from
-legends, and places `Eigen1/Eigen2` inside the axes instead of above them.
+For a 2×2 return-ratio matrix, use the dedicated recipes in
+`references/chart-types.md`. They provide compact, Visio-editable Nyquist and
+2×2 magnitude/phase Bode layouts with in-panel `Eigen1/Eigen2` labels.
 
 ## Helper: adaptive color generation for N items
 

@@ -216,3 +216,63 @@ end
 - Use `fixed_limit=2` when the unit-circle and `(-1,j0)` neighborhood are the evidence.
 - Keep reference lines out of legends with `HandleVisibility='off'`.
 - Use `copygraphics(gcf,'ContentType','vector')` or EMF/PDF for Visio editing.
+
+## 9. Two-eigenvalue Bode plot
+
+Use this 2×2 layout for magnitude and phase curves of two continuously sorted
+eigenvalues. The dimensions leave enough room for logarithmic decade labels and
+the two `Phase (deg)` labels at an 8 cm publication width.
+
+```matlab
+function plot_eigen_bode_pair(fig_num,freq,eig_curves,figure_name,colors)
+% eig_curves: 2×N complex matrix; freq: positive frequency vector in Hz.
+
+figure(fig_num); clf;
+fig=gcf;
+set(fig,'Name',sprintf('Figure %d - %s',fig_num,figure_name), ...
+    'NumberTitle','off','Color','w','Units','centimeters', ...
+    'Position',[5,5,8,6],'PaperPositionMode','auto', ...
+    'InvertHardcopy','off','Renderer','painters');
+
+positions={[0.11,0.59,0.36,0.36],[0.61,0.59,0.36,0.36], ...
+           [0.11,0.13,0.36,0.36],[0.61,0.13,0.36,0.36]};
+
+for mode=1:2
+    ax_mag=axes('Parent',fig,'Position',positions{mode});
+    semilogx(ax_mag,freq,20*log10(abs(eig_curves(mode,:))), ...
+        '-','Color',colors(mode,:),'LineWidth',0.85);
+    grid(ax_mag,'on');
+    ylabel(ax_mag,'Magnitude (dB)','FontName','Times New Roman','FontSize',7);
+    set(ax_mag,'FontName','Times New Roman','FontSize',7, ...
+        'XScale','log','XLim',[1 1e4], ...
+        'XTick',[1 10 100 1000 10000],'XMinorTick','on', ...
+        'LineWidth',0.5,'Box','on','TickDir','in');
+
+    ax_phase=axes('Parent',fig,'Position',positions{mode+2});
+    semilogx(ax_phase,freq,angle(eig_curves(mode,:))*180/pi, ...
+        '-','Color',colors(mode,:),'LineWidth',0.85);
+    grid(ax_phase,'on');
+    xlabel(ax_phase,'Frequency (Hz)','FontName','Times New Roman','FontSize',7);
+    ylabel(ax_phase,'Phase (deg)','FontName','Times New Roman','FontSize',7);
+    set(ax_phase,'FontName','Times New Roman','FontSize',7, ...
+        'XScale','log','XLim',[1 1e4], ...
+        'XTick',[1 10 100 1000 10000],'XMinorTick','on', ...
+        'YTick',[-200 -100 0 100 200], ...
+        'LineWidth',0.5,'Box','on','TickDir','in');
+end
+
+annotation(fig,'textbox',[0.12 0.62 0.10 0.05], ...
+    'String','Eigen1','HorizontalAlignment','center', ...
+    'VerticalAlignment','middle','FontName','Times New Roman', ...
+    'FontSize',7,'FitBoxToText','off','EdgeColor','none');
+annotation(fig,'textbox',[0.62 0.62 0.10 0.05], ...
+    'String','Eigen2','HorizontalAlignment','center', ...
+    'VerticalAlignment','middle','FontName','Times New Roman', ...
+    'FontSize',7,'FitBoxToText','off','EdgeColor','none');
+end
+```
+
+- Keep the top axes at `0.59 + 0.36 = 0.95`; this removes excess top whitespace.
+- Keep each axes width at `0.36` so `Phase (deg)` does not overlap the adjacent panel.
+- Do not add `title` or `sgtitle`; identify the stage through the figure window name.
+- Use only positive frequencies and continuously sorted eigenvalue branches.
