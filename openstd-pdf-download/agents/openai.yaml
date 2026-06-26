@@ -1,0 +1,5 @@
+interface:
+  display_name: "Openstd PDF Download"
+  short_description: "Download and rename SAMR open standards PDFs"
+  default_prompt: "Use $openstd-pdf-download to download GB/T PDFs from SAMR detail pages and rename them by release date, Chinese title, and standard number."
+
