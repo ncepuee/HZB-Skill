@@ -1,0 +1,4 @@
+interface:
+  display_name: "IEEE Reference"
+  short_description: "Format BibTeX references for IEEE TIE-style papers"
+  default_prompt: "Use $ieee-reference to format and audit BibTeX references for an IEEE TIE LaTeX manuscript."

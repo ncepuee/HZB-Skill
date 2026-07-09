@@ -2,7 +2,7 @@
 
 HZB's custom AI agent skills collection for Claude Code, Codex, and other AI coding tools.
 
-## Skills (12 个，全部经过深入内容提取)
+## Skills
 
 | Skill | 来源书籍 | 核心内容 |
 |-------|---------|---------|
@@ -18,11 +18,12 @@ HZB's custom AI agent skills collection for Claude Code, Codex, and other AI cod
 | `feedback-control-dynamic-systems` | Feedback Control of Dynamic Systems 7th (Franklin) | 根轨迹设计、频域整形、状态空间、数字控制 |
 | `lewis-optimal-control-3rd` | Optimal Control 3rd (Lewis) | Pontryagin原理、LQR/LQG、Bellman方程、MRAC |
 | `ieee-figure` | IEEE论文图表规范 | Figure格式、尺寸、字体、颜色 |
+| `ieee-reference` | IEEE/TIE 参考文献规范 | BibTeX条目、IEEEtranTIE、DOI、标准、专利、引用检查 |
 
 ## Usage
 
 ```bash
-git clone https://github.com/ncepuee/HZB-SKill.git ~/.agents/skills/HZB-SKill
+git clone https://github.com/ncepuee/HZB-Skill.git ~/.agents/skills/HZB-Skill
 ```
 
 ## License
