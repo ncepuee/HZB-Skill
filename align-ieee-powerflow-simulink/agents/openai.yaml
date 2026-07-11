@@ -1,0 +1,4 @@
+interface:
+  display_name: "Align IEEE Power Flow and Simulink"
+  short_description: "Align IEEE bus power flow with Simulink phasor models"
+  default_prompt: "Use $align-ieee-powerflow-simulink to compare an IEEE bus power-flow case with a Simulink phasor model and produce an alignment report."

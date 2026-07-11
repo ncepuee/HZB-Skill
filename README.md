@@ -10,6 +10,7 @@ HZB's custom AI agent skills collection for Claude Code, Codex, and other AI cod
 | `control-beauty-vol1` | 控制之美 第1卷 (吴昊天) | 传递函数、Bode图、根轨迹、状态空间、PID |
 | `control-beauty-vol2` | 控制之美 第2卷 (吴昊天) | LQR/LQG、MPC、Kalman滤波器 |
 | `power-system-dynamics-control` | Power System Dynamics (Andersson) | 频率控制、电压控制、FACTS、系统稳定性 |
+| `align-ieee-powerflow-simulink` | IEEE标准节点系统与MATLAB/Simulink SPS | 潮流与Phasor模型参数对齐、初始化、正序测量、P/Q及误差验证 |
 | `dynamic-mode-decomposition` | DMD (Kutz & Brunton) | DMD算法、Koopman算子、数据驱动建模 |
 | `khalil-nonlinear-systems-3rd` | Nonlinear Systems 3rd (Khalil) | Lyapunov稳定性、ISS、无源性、反馈线性化、奇异摄动 |
 | `modern-control-engineering-ogata` | Modern Control Engineering 5th (Ogata) | 根轨迹、频域设计、PID整定、状态空间 |
@@ -19,6 +20,7 @@ HZB's custom AI agent skills collection for Claude Code, Codex, and other AI cod
 | `lewis-optimal-control-3rd` | Optimal Control 3rd (Lewis) | Pontryagin原理、LQR/LQG、Bellman方程、MRAC |
 | `ieee-figure` | IEEE论文图表规范 | Figure格式、尺寸、字体、颜色 |
 | `ieee-reference` | IEEE/TIE 参考文献规范 | BibTeX条目、IEEEtranTIE、DOI、标准、专利、引用检查 |
+| `openstd-pdf-download` | Open Standards | 从openstd.samr.gov.cn检索并下载国家标准PDF |
 
 ## Usage
 
