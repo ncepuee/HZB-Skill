@@ -31,6 +31,13 @@ HZB's custom AI agent skills collection for Claude Code, Codex, and other AI cod
 git clone https://github.com/ncepuee/HZB-Skill.git ~/.agents/skills/HZB-Skill
 ```
 
+## Author
+
+**Zhenbin Huang**
+
+- ORCID: [0000-0002-0628-0387](https://orcid.org/0000-0002-0628-0387)
+- LinkedIn: [zhenbin-huang](https://www.linkedin.com/in/zhenbin-huang/)
+
 ## License
 
-MIT
+MIT License - Copyright (c) 2025-2026 Zhenbin Huang
