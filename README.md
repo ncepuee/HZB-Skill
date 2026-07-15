@@ -24,6 +24,7 @@ HZB's custom AI agent skills collection for Claude Code, Codex, and other AI cod
 | `excel-to-pdf` | Excel to PDF | 将Excel签到表/花名册转换为A4可打印PDF（支持中文字体） |
 | `multi-agent-comm` | Multi-Agent Communication | 多智能体通信框架、任务委派、跨Agent协同 |
 | `scr-calculator` | SCR Calculator | 短路比计算器，支持Lg↔SCR换算、批量对照表、电网强度分类 |
+| `academic-ppt-infographic-cn-skill` | 中文学术PPT信息图 | 科技成果鉴定/科技奖申报风格PPT信息图生成、技术路线图、三栏/四层结构 |
 
 ## Usage
 
