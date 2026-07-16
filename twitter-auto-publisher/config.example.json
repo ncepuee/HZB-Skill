@@ -1,0 +1,18 @@
+{
+  "cdp_endpoint": "http://localhost:9222",
+  "proxy": "",
+  "chrome_path": "C:/Program Files/Google/Chrome/Application/chrome.exe",
+  "twitter_handle": "your_username",
+  "research": {
+    "twitter_profiles": ["@example_user"],
+    "twitter_search_queries": [
+      "(ChatGPT OR Codex OR \"Claude Code\" OR GPT-5) min_faves:500"
+    ],
+    "wechat_search_keywords": ["Codex 教程", "Claude Code 教程"]
+  },
+  "cookies": {
+    "auth_token": "",
+    "ct0": "",
+    "twid": ""
+  }
+}

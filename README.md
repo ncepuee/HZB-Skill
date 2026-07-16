@@ -2,7 +2,7 @@
 
 HZB's custom AI agent skills collection for Claude Code, Codex, and other AI coding tools.
 
-## Skills
+## Skills (20 个)
 
 | Skill | 来源/书籍 | 核心内容 |
 |-------|----------|---------|
@@ -25,6 +25,7 @@ HZB's custom AI agent skills collection for Claude Code, Codex, and other AI cod
 | `multi-agent-comm` | Multi-Agent Communication | 多智能体通信框架、任务委派、跨Agent协同 |
 | `scr-calculator` | SCR Calculator | 短路比计算器，支持Lg↔SCR换算、批量对照表、电网强度分类 |
 | `academic-ppt-infographic-cn-skill` | 中文学术PPT信息图 | 科技成果鉴定/科技奖申报风格PPT信息图生成、技术路线图、三栏/四层结构 |
+| `twitter-auto-publisher` | Twitter/X 自动发布工具 | Chrome CDP 自动调研+发推，无需 Twitter API，支持账号抓取/关键词搜索/微信文章搜索 |
 
 ## Usage
 
