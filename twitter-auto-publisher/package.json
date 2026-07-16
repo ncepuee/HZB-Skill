@@ -1,0 +1,14 @@
+{
+  "name": "twitter-auto-publisher",
+  "version": "1.0.0",
+  "description": "Auto research and publish Twitter/X posts via Chrome CDP. No Twitter API needed.",
+  "private": true,
+  "scripts": {
+    "research": "node research.js",
+    "publish": "node publish-tweet.js",
+    "test-connection": "node cdp-utils.js"
+  },
+  "dependencies": {
+    "playwright-core": "^1.40.0"
+  }
+}
