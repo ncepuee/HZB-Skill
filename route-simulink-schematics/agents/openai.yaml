@@ -1,0 +1,4 @@
+interface:
+  display_name: "Simulink Schematic Routing"
+  short_description: "Topology-first routing for readable Simulink schematics"
+  default_prompt: "Use $route-simulink-schematics to route this Simulink model with topology-first, human-readable three-phase wiring."
