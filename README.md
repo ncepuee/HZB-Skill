@@ -2,9 +2,9 @@
 
 HZB's custom AI agent skills collection for Claude Code, Codex, and other AI coding tools.
 
-当前版本：[v1.0.5](https://github.com/ncepuee/HZB-Skill/releases/tag/v1.0.5)
+当前版本：[v1.0.6](https://github.com/ncepuee/HZB-Skill/releases/tag/v1.0.6)
 
-## Skills (21 个)
+## Skills (22 个)
 
 | Skill | 来源/书籍 | 核心内容 |
 |-------|----------|---------|
@@ -33,8 +33,13 @@ HZB's custom AI agent skills collection for Claude Code, Codex, and other AI cod
 
 ## Releases
 
+- [v1.0.6](https://github.com/ncepuee/HZB-Skill/releases/tag/v1.0.6)：新增 `patent-pdf-download`，批量下载专利全文PDF，多源回退策略；更新 `academic-ppt-infographic-cn-skill`。
 - [v1.0.5](https://github.com/ncepuee/HZB-Skill/releases/tag/v1.0.5)：新增 `route-simulink-schematics`，提供拓扑优先的 Simulink/Simscape 布局、三相成束布线与差分审计。
-- [v1.0.4](https://github.com/ncepuee/HZB-Skill/releases/tag/v1.0.4)：新增 `twitter-auto-publisher`。
+- [v1.0.4](https://github.com/ncepuee/HZB-Skill/releases/tag/v1.0.4)：新增 `twitter-auto-publisher`，Chrome CDP 自动调研+发推，无需 Twitter API。
+- [v1.0.3](https://github.com/ncepuee/HZB-Skill/releases/tag/v1.0.3)：新增 `academic-ppt-infographic-cn-skill`，中文学术科技奖励PPT信息图生成。
+- [v1.0.2](https://github.com/ncepuee/HZB-Skill/releases/tag/v1.0.2)：新增 `scr-calculator`，短路比计算器，支持Lg↔SCR换算与电网强度分类。
+- [v1.0.1](https://github.com/ncepuee/HZB-Skill/releases/tag/v1.0.1)：版本对齐，发布 `multi-agent-comm` 至 GitHub Releases。
+- [v1.0.0](https://github.com/ncepuee/HZB-Skill/releases/tag/v1.0.0)：初始发布，包含 `multi-agent-comm`。
 
 ## Usage
 
