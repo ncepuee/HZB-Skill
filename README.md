@@ -24,6 +24,7 @@ HZB's custom AI agent skills collection for Claude Code, Codex, and other AI cod
 | `ieee-figure` | IEEE论文图表规范 | Figure格式、尺寸、字体、颜色 |
 | `IEEE-Reference` | IEEE/TIE 参考文献规范 | BibTeX条目、IEEEtranTIE、DOI、标准、专利、引用检查 |
 | `openstd-pdf-download` | Open Standards | 从openstd.samr.gov.cn检索并下载国家标准PDF |
+| `patent-pdf-download` | Patent PDF Download | 批量下载专利全文PDF，支持CN/US/EP/JP专利，Google Patents API + cnipa.gov.cn 多源回退 |
 | `excel-to-pdf` | Excel to PDF | 将Excel签到表/花名册转换为A4可打印PDF（支持中文字体） |
 | `multi-agent-comm` | Multi-Agent Communication | 多智能体通信框架、任务委派、跨Agent协同 |
 | `scr-calculator` | SCR Calculator | 短路比计算器，支持Lg↔SCR换算、批量对照表、电网强度分类 |
