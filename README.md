@@ -2,9 +2,9 @@
 
 HZB's custom AI agent skills collection for Claude Code, Codex, and other AI coding tools.
 
-当前版本：[v1.4.0](https://github.com/ncepuee/HZB-Skill/releases/tag/v1.4.0)
+当前版本：[v1.5.0](https://github.com/ncepuee/HZB-Skill/releases/tag/v1.5.0)
 
-## Skills (29 个)
+## Skills (30 个)
 
 | Skill | 来源/书籍 | 核心内容 |
 |-------|----------|---------|
@@ -25,6 +25,7 @@ HZB's custom AI agent skills collection for Claude Code, Codex, and other AI cod
 | `Lewis-Optimal-Control-3rd` | Optimal Control 3rd (Lewis) | Pontryagin原理、LQR/LQG、Bellman方程、MRAC |
 | `ieee-figure` | IEEE论文图表规范 | Figure格式、尺寸、字体、颜色 |
 | `IEEE-Reference` | IEEE/TIE 参考文献规范 | BibTeX条目、IEEEtranTIE、DOI、标准、专利、引用检查 |
+| `math-latex-auditor` | Math LaTeX Auditor | 学术 Markdown/MathJax 公式审校、公式编号检查、格式修复与确定性审计 |
 | `openstd-pdf-download` | Open Standards | 从openstd.samr.gov.cn检索并下载国家标准PDF |
 | `patent-pdf-download` | Patent PDF Download | 批量下载专利全文PDF，支持CN/US/EP/JP专利，Google Patents API + cnipa.gov.cn 多源回退 |
 | `excel-to-pdf` | Excel to PDF | 将Excel签到表/花名册转换为A4可打印PDF（支持中文字体） |
@@ -39,6 +40,8 @@ HZB's custom AI agent skills collection for Claude Code, Codex, and other AI cod
 | `qiewenpaper-literature-search` | 切问学术 (Qiewenpaper) | 基于已登录切问学术账号的文献检索、对比、综述与引用整理，内置会话安全与额度保护边界 |
 
 ## Releases
+
+- [v1.5.0](https://github.com/ncepuee/HZB-Skill/releases/tag/v1.5.0)：新增 `math-latex-auditor`，配套公式规范、审计脚本和独立 agent 配置，用于学术 Markdown/MathJax 公式的审校与安全修复。
 
 - [v1.4.0](https://github.com/ncepuee/HZB-Skill/releases/tag/v1.4.0)：新增 `qiewenpaper-literature-search`，通过已登录的切问学术网页账号完成文献检索、对比与综述整理，含快速/深度检索模式、引用信息收集与内部接口排障参考，并明确禁止凭据提取与未授权额度消耗。
 

@@ -1,0 +1,6 @@
+interface:
+  display_name: "Math LaTeX Auditor"
+  short_description: "Audit academic Markdown and LaTeX formulas"
+  default_prompt: "Use $math-latex-auditor to audit this mathematical Markdown document and report or safely repair formula-formatting violations."
+policy:
+  allow_implicit_invocation: true
