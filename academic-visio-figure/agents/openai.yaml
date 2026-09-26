@@ -1,0 +1,5 @@
+interface:
+  display_name: "Academic Visio Figure"
+  short_description: "Create and audit editable Visio figures for technical publications"
+  default_prompt: "Use $academic-visio-figure to create or refine this editable VSDX for its target publication and verify layout, typography, connections, and structure."
+

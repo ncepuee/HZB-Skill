@@ -1,0 +1,14 @@
+{
+  "name": "hzb-paper-8pt-electrical",
+  "expectedPageWidthCm": 9.0,
+  "expectedLineWeightPt": 0.5,
+  "expectedArrowType": 5,
+  "allowedFontSizesPt": [8.0],
+  "requireNoMedia": true,
+  "notes": [
+    "Use only when the user requests the established HZB compact electrical-paper style.",
+    "Ordinary directional arrows use size 1; compact arrows inside source symbols may use size 0.",
+    "The #31859B accent is scoped to current-source material, not the whole figure.",
+    "Preserve user-selected Unicode glyphs and mixed upright/italic math formatting."
+  ]
+}
