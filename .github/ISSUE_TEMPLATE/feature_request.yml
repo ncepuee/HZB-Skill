@@ -1,0 +1,26 @@
+name: Skill improvement
+description: Propose a skill, workflow, or documentation improvement
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: User need
+      description: What task or failure mode should this address?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed outcome
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+  - type: checkboxes
+    id: rights
+    attributes:
+      label: Rights and privacy
+      options:
+        - label: The proposal does not disclose private data and does not assume permission to reuse third-party content.
+          required: true

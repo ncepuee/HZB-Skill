@@ -1,143 +1,73 @@
-# HZB-Skill
+<h1 align="center">HZB-Skill</h1>
 
-HZB's custom AI agent skills collection for Claude Code, Codex, and other AI coding tools.
+<p align="center"><a href="README.zh-CN.md">中文</a> · <strong>English</strong></p>
 
-当前版本：[v1.6.0](https://github.com/ncepuee/HZB-Skill/releases/tag/v1.6.0)
+<p align="center">A practical collection of AI agent skills for research, engineering, and everyday work.</p>
 
-## Skills (32 个)
+<p align="center">
+  <a href="https://openai.com/codex/"><img alt="Codex Code Support" src="https://img.shields.io/badge/Codex-Code_Support-orange?logo=data:image/svg%2bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI%2bPHBhdGggZmlsbD0iI2ZmZiIgZD0iTTguMDg2LjQ1N2E2LjEwNSA2LjEwNSAwIDAxMy4wNDYtLjQxNWMxLjMzMy4xNTMgMi41MjEuNzIgMy41NjQgMS43YS4xMTcuMTE3IDAgMDAuMTA3LjAyOWMxLjQwOC0uMzQ2IDIuNzYyLS4yMjQgNC4wNjEuMzY2bC4wNjMuMDMuMTU0LjA3NmMxLjM1Ny43MDMgMi4zMyAxLjc3IDIuOTE4IDMuMTk4LjI3OC42NzkuNDE4IDEuMzg4LjQyMSAyLjEyNmE1LjY1NSA1LjY1NSAwIDAxLS4xOCAxLjYzMS4xNjcuMTY3IDAgMDAuMDQuMTU1IDUuOTgyIDUuOTgyIDAgMDExLjU3OCAyLjg5MWMuMzg1IDEuOTAxLS4wMSAzLjYxNS0xLjE4MyA1LjE0bC0uMTgyLjIyYTYuMDYzIDYuMDYzIDAgMDEtMi45MzQgMS44NTEuMTYyLjE2MiAwIDAwLS4xMDguMTAyYy0uMjU1LjczNi0uNTExIDEuMzY0LS45ODcgMS45OTItMS4xOTkgMS41ODItMi45NjIgMi40NjItNC45NDggMi40NTEtMS41ODMtLjAwOC0yLjk4Ni0uNTg3LTQuMjEtMS43MzZhLjE0NS4xNDUgMCAwMC0uMTQtLjAzMmMtLjUxOC4xNjctMS4wNC4xOTEtMS42MDQuMTg1YTUuOTI0IDUuOTI0IDAgMDEtMi41OTUtLjYyMiA2LjA1OCA2LjA1OCAwIDAxLTIuMTQ2LTEuNzgxYy0uMjAzLS4yNjktLjQwNC0uNTIyLS41NTEtLjgyMWE3Ljc0IDcuNzQgMCAwMS0uNDk1LTEuMjgzIDYuMTEgNi4xMSAwIDAxLS4wMTctMy4wNjQuMTY2LjE2NiAwIDAwLjAwOC0uMDc0LjExNS4xMTUgMCAwMC0uMDM3LS4wNjQgNS45NTggNS45NTggMCAwMS0xLjM4LTIuMjAyIDUuMTk2IDUuMTk2IDAgMDEtLjMzMy0xLjU4OSA2LjkxNSA2LjkxNSAwIDAxLjE4OC0yLjEzMmMuNDUtMS40ODQgMS4zMDktMi42NDggMi41NzctMy40OTMuMjgyLS4xODguNTUtLjMzNC44MDItLjQzOC4yODYtLjEyLjU3My0uMjIuODYxLS4zMDRhLjEyOS4xMjkgMCAwMC4wODctLjA4N0E2LjAxNiA2LjAxNiAwIDAxNS42MzUgMi4zMUM2LjMxNSAxLjQ2NCA3LjEzMi44NDYgOC4wODYuNDU3em0tLjgwNCA3Ljg1YS44NDguODQ4IDAgMDAtMS40NzMuODQybDEuNjk0IDIuOTY1LTEuNjg4IDIuODQ4YS44NDkuODQ5IDAgMDAxLjQ2Ljg2NGwxLjk0LTMuMjcyYS44NDkuODQ5IDAgMDAuMDA3LS44NTRsLTEuOTQtMy4zOTN6bTUuNDQ2IDYuMjRhLjg0OS44NDkgMCAwMDAgMS42OTVoNC44NDhhLjg0OS44NDkgMCAwMDAtMS42OTZoLTQuODQ4eiIvPjwvc3ZnPg%3d%3d&amp;logoColor=white"></a>
+  <a href="https://openai.com/"><img alt="GPT-6 Agent used @ GPT-6-Luna" src="https://img.shields.io/badge/GPT--6-Agent_used%40GPT--6--Luna-412991?logo=openai&amp;logoColor=white"></a>
+  <a href="https://github.com/ncepuee/HZB-Skill"><img alt="GitHub stars" src="https://img.shields.io/github/stars/ncepuee/HZB-Skill?logo=github&amp;cacheSeconds=86400"></a>
+</p>
 
-| Skill | 来源/书籍 | 核心内容 |
-|-------|----------|---------|
-| `multivariable-control` | Multivariable Feedback Control (Skogestad & Postlethwaite) | SVD、RGA、H∞、μ分析、鲁棒控制 |
-| `control-beauty-vol1` | 控制之美 第1册 (吴昊) | 传递函数、Bode图、根轨迹、状态空间、PID |
-| `control-beauty-vol2` | 控制之美 第2册 (吴昊) | LQR/LQG、MPC、Kalman滤波 |
-| `power-system-dynamics-control` | Power System Dynamics (Andersson) | 频率控制、电压控制、FACTS、系统稳定性 |
-| `align-ieee-powerflow-simulink` | IEEE标准节点系统 & MATLAB/Simulink SPS | 潮流与Phasor模型参数对齐、初始化、序测量、P/Q及误差验证 |
-| `route-simulink-schematics` | 人工优化的IEEE 123节点三相馈线布局 | 拓扑优先布局、三相平行成束布线、模块方向选择、布局差分审计 |
-| `simulink-connection-integrity` | 通用 Simulink 接线完整性守卫 | `fast/standard/release` 分级检查、断线/端口/PID/Goto-From 审计、回调与 Mask 参数保护、SLX 包级复检 |
-| `upgrade-legacy-simulink-models` | MATLAB/Simulink 跨版本迁移实战 | 旧版模型保护、SPS/SimPowerSystems 转原生 Simscape、库链接与回调修复、版本隔离缓存、双版本编译及短仿真验收 |
-| `dynamic-mode-decomposition` | DMD (Kutz & Brunton) | DMD算法、Koopman算子、数据驱动建模 |
-| `Khalil-Nonlinear-Systems-3rd` | Nonlinear Systems 3rd (Khalil) | Lyapunov稳定性、ISS、无源性、反馈线性化、奇异摄动 |
-| `Modern-Control-Engineering-Ogata` | Modern Control Engineering 5th (Ogata) | 根轨迹、频域设计、PID整定、状态空间 |
-| `PID-Theory-Design-Astrom` | PID Controllers (Åström) | Ziegler-Nichols、Lambda/IMC整定、抗饱和、二自由度 |
-| `Robust-Optimal-Control` | Robust and Optimal Control (Zhou, Doyle, Glover) | H∞控制、μ综合、LQG/LTR、模型降阶 |
-| `Feedback-Control-Dynamic-Systems` | Feedback Control of Dynamic Systems 7th (Franklin) | 根轨迹设计、频域整形、状态空间、数字控制 |
-| `Lewis-Optimal-Control-3rd` | Optimal Control 3rd (Lewis) | Pontryagin原理、LQR/LQG、Bellman方程、MRAC |
-| `ieee-figure` | IEEE论文图表规范 | Figure格式、尺寸、字体、颜色 |
-| `academic-visio-figure` | 通用可编辑 Visio 科研绘图工作流 | 新建/重建/优化/审计流程图、控制框图、电路与网络图、架构图；按项目配置版面、数学排版、线条、箭头和颜色 |
-| `IEEE-Reference` | IEEE/TIE 参考文献规范 | BibTeX条目、IEEEtranTIE、DOI、标准、专利、引用检查 |
-| `math-latex-auditor` | Math LaTeX Auditor | 学术 Markdown/MathJax 公式审校、公式编号检查、格式修复与确定性审计 |
-| `openstd-pdf-download` | Open Standards | 从openstd.samr.gov.cn检索并下载国家标准PDF |
-| `patent-pdf-download` | Patent PDF Download | 批量下载专利全文PDF，支持CN/US/EP/JP专利，Google Patents API + cnipa.gov.cn 多源回退 |
-| `excel-to-pdf` | Excel to PDF | 将Excel签到表/花名册转换为A4可打印PDF（支持中文字体） |
-| `multi-agent-comm` | Multi-Agent Communication | 多智能体通信框架、任务委派、跨Agent协同 |
-| `scr-calculator` | SCR Calculator | 短路比计算器，支持Lg↔SCR换算、批量对照表、电网强度分类 |
-| `academic-ppt-infographic-cn-skill` | 中文学术PPT信息图 | 科技成果鉴定/科技奖申报风格PPT信息图生成、技术路线图、三栏/四层结构 |
-| `twitter-auto-publisher` | Twitter/X 自动发布工具 | Chrome CDP 自动调研+发推，无需 Twitter API，支持账号抓取/关键词搜索/微信文章搜索 |
-| `pdf-bookmark-migration` | PDF Bookmark Migration | PDF书签（大纲）迁移工具，支持多级嵌套书签、XYZ/Fit目标类型保留、批量处理 |
-| `pdf-a4-normalizer` | PDF A4 Normalizer | 递归核查 PDF 页面尺寸，仅转换非 A4 文件，按比例居中适配 A4 并复核输出 |
-| `image2ppt` | Image to Editable PowerPoint | 将图片、截图、信息图或PDF页面重建为高保真、可编辑的 PowerPoint，并通过渲染对比验收 |
-| `open-kimi-ppt` | Open Kimi PPT | 基于 PPTD 中间格式创建、编辑、复制、读取和导出可编辑演示文稿，同时生成 PPTD 项目与 PPTX |
-| `qiewenpaper-literature-search` | 切问学术 (Qiewenpaper) | 基于已登录切问学术账号的文献检索、对比、综述与引用整理，内置会话安全与额度保护边界 |
-| `tektronix-scope-analysis` | Tektronix Oscilloscopes | 通过用户提供的浏览器/VISA/SCPI 入口查看波形、采集校准数据并分析电气信号 |
+<p align="center">
+  <a href="https://github.com/ncepuee/HZB-Skill/releases/latest"><img alt="Latest release" src="https://img.shields.io/github/v/release/ncepuee/HZB-Skill?display_name=tag"></a>
+  <a href="https://github.com/ncepuee/HZB-Skill/actions/workflows/ci.yml"><img alt="CI" src="https://github.com/ncepuee/HZB-Skill/actions/workflows/ci.yml/badge.svg?branch=main"></a>
+  <a href="https://github.com/ncepuee/HZB-Skill/wiki"><img alt="Project wiki" src="https://img.shields.io/badge/Docs-Wiki-blue?logo=github"></a>
+  <img alt="All rights reserved" src="https://img.shields.io/badge/rights-All_rights_reserved-lightgrey">
+</p>
+
+<p align="center"><a href="https://github.com/ncepuee/HZB-Skill/wiki">Wiki</a> · <a href="https://github.com/ncepuee/HZB-Skill/releases">Releases</a> · <a href="https://github.com/ncepuee/HZB-Skill/issues">Issues</a> · <a href="CONTRIBUTING.md">Contributing</a> · <a href="CHANGELOG.md">Changelog</a></p>
+
+Current released version: [`v1.7.0`](https://github.com/ncepuee/HZB-Skill/releases/tag/v1.7.0)
+
+> **Development attribution:** Created and maintained by Zhenbin Huang; this release includes AI-assisted work using OpenAI Codex and GPT-6-Luna.
+
+## Skills (32)
+
+| Skill | Source / reference | Focus |
+|-------|--------------------|-------|
+| `multivariable-control` | Multivariable Feedback Control (Skogestad & Postlethwaite) | SVD, RGA, H∞, μ-analysis, robust control |
+| `control-beauty-vol1` | 控制之美 Vol. 1 (吴昊) | Transfer functions, Bode plots, root locus, state space, PID |
+| `control-beauty-vol2` | 控制之美 Vol. 2 (吴昊) | LQR/LQG, MPC, Kalman filtering |
+| `power-system-dynamics-control` | Power System Dynamics (Andersson) | Frequency and voltage control, FACTS, stability |
+| `align-ieee-powerflow-simulink` | IEEE bus systems & MATLAB/Simulink SPS | Aligning load flow and phasor models, initialization, sequence measurements, P/Q and error validation |
+| `route-simulink-schematics` | IEEE 123-node three-phase feeder layout | Topology-first layout, phase-bundled routing, block orientation, layout diff audit |
+| `simulink-connection-integrity` | Simulink connection integrity guard | Tiered structural checks, wiring/port/PID/Goto-From audits, callback and mask protection, SLX package recheck |
+| `upgrade-legacy-simulink-models` | MATLAB/Simulink version migration | Preserve legacy models, migrate SPS to native Simscape, repair links and callbacks, validate across MATLAB versions |
+| `dynamic-mode-decomposition` | DMD (Kutz & Brunton) | DMD, Koopman operators, data-driven modeling |
+| `Khalil-Nonlinear-Systems-3rd` | Nonlinear Systems, 3rd ed. (Khalil) | Lyapunov stability, ISS, passivity, feedback linearization, singular perturbation |
+| `Modern-Control-Engineering-Ogata` | Modern Control Engineering, 5th ed. (Ogata) | Root locus, frequency-domain design, PID tuning, state space |
+| `PID-Theory-Design-Astrom` | PID Controllers (Åström) | Ziegler–Nichols, Lambda/IMC tuning, anti-windup, two-degree-of-freedom control |
+| `Robust-Optimal-Control` | Robust and Optimal Control (Zhou, Doyle, Glover) | H∞ control, μ-synthesis, LQG/LTR, model reduction |
+| `Feedback-Control-Dynamic-Systems` | Feedback Control of Dynamic Systems, 7th ed. (Franklin) | Root-locus design, frequency shaping, state space, digital control |
+| `Lewis-Optimal-Control-3rd` | Optimal Control, 3rd ed. (Lewis) | Pontryagin principle, LQR/LQG, Bellman equation, MRAC |
+| `ieee-figure` | IEEE figure standards | Figure formats, dimensions, fonts, colors |
+| `academic-visio-figure` | Editable Visio workflow for research figures | Create, rebuild, optimize, and audit flowcharts, control diagrams, circuits, networks, and architecture figures |
+| `IEEE-Reference` | IEEE/TIE reference standards | BibTeX, IEEEtranTIE, DOI, standards, patents, citation checks |
+| `math-latex-auditor` | Math LaTeX Auditor | Review and repair academic Markdown/MathJax equations, numbering, and formatting |
+| `openstd-pdf-download` | Open Standards | Search and download standards PDFs from the official standards platform |
+| `patent-pdf-download` | Patent PDF Download | Batch download CN/US/EP/JP patent PDFs with multi-source fallback |
+| `excel-to-pdf` | Excel to PDF | Convert Excel rosters and forms to printable A4 PDFs with CJK font support |
+| `multi-agent-comm` | Multi-Agent Communication | Agent communication, task delegation, cross-agent collaboration |
+| `scr-calculator` | SCR Calculator | Short-circuit ratio calculations, Lg↔SCR conversion, grid-strength classification |
+| `academic-ppt-infographic-cn-skill` | Chinese academic PPT infographics | Research award-style infographics and technical roadmaps |
+| `twitter-auto-publisher` | Twitter/X publishing tool | Automated research and posting via Chrome CDP; account, keyword, and WeChat article search |
+| `pdf-bookmark-migration` | PDF Bookmark Migration | Migrate nested PDF bookmarks, preserve destination types, process batches |
+| `pdf-a4-normalizer` | PDF A4 Normalizer | Inspect page sizes, fit non-A4 pages proportionally to A4, and verify output |
+| `image2ppt` | Image to Editable PowerPoint | Rebuild images, screenshots, infographics, and PDF pages as editable PowerPoint slides |
+| `open-kimi-ppt` | Open Kimi PPT | Create, edit, and export presentations using PPTD |
+| `qiewenpaper-literature-search` | 切问学术 (Qiewenpaper) | Search and synthesize literature through an authenticated web session |
+| `tektronix-scope-analysis` | Tektronix oscilloscopes | Inspect and acquire waveforms through user-provided browser/VISA/SCPI access and analyze electrical signals |
+
+Each skill directory contains its own `SKILL.md`, scripts, references, and usage boundaries. Open the relevant directory for its detailed documentation.
 
 ## Releases
 
-- [v1.6.0](https://github.com/ncepuee/HZB-Skill/releases/tag/v1.6.0)：新增 `academic-visio-figure`，可编辑 Visio 科研绘图工作流，覆盖流程图、控制框图、电路与网络图、架构图的新建/重建/优化/审计，含样式契约、语义排版规则、结构审计脚本与可选项目风格 profile。
+- [v1.7.0](https://github.com/ncepuee/HZB-Skill/releases/tag/v1.7.0): adds `tektronix-scope-analysis`, synchronized English/Chinese README pages, corrected badges, repository CI, rights notice, and Wiki navigation.
+- See the [changelog](CHANGELOG.md) and [GitHub Releases](https://github.com/ncepuee/HZB-Skill/releases) for full history.
 
-- [v1.5.0](https://github.com/ncepuee/HZB-Skill/releases/tag/v1.5.0)：新增 `math-latex-auditor`，配套公式规范、审计脚本和独立 agent 配置，用于学术 Markdown/MathJax 公式的审校与安全修复。
-
-- [v1.4.0](https://github.com/ncepuee/HZB-Skill/releases/tag/v1.4.0)：新增 `qiewenpaper-literature-search`，通过已登录的切问学术网页账号完成文献检索、对比与综述整理，含快速/深度检索模式、引用信息收集与内部接口排障参考，并明确禁止凭据提取与未授权额度消耗。
-
-- [v1.3.0](https://github.com/ncepuee/HZB-Skill/releases/tag/v1.3.0)：新增 `image2ppt` 与 `open-kimi-ppt`，分别用于图片到可编辑PPT的高保真重建，以及基于PPTD的演示文稿创建、编辑和导出。
-- [v1.2.1](https://github.com/ncepuee/HZB-Skill/releases/tag/v1.2.1)：新增 `pdf-a4-normalizer`，递归核查 PDF 页面尺寸，仅转换非 A4 文件，支持交互内容风险识别与可见效果扁平化。
-- [v1.2.0](https://github.com/ncepuee/HZB-Skill/releases/tag/v1.2.0)：新增 `upgrade-legacy-simulink-models`，支持旧版 Simulink/SPS 模型迁移到新 MATLAB，覆盖源模型保护、官方转换助手、遗留模块修复、Solver Configuration、版本隔离缓存以及源/目标双版本验收。
-- [v1.1.0](https://github.com/ncepuee/HZB-Skill/releases/tag/v1.1.0)：升级 `simulink-connection-integrity`，新增风险分级检查、保存后 SLX 包级结构比较、模型回调与 Mask 参数保护契约，并显著加快大型模型检查。
-- [v1.0.8](https://github.com/ncepuee/HZB-Skill/releases/tag/v1.0.8)：新增 `simulink-connection-integrity`，在任意 Simulink 模型修改前后建立连接基线并阻止非预期断线、动态 Mask 端口悬空及未修改模块接线漂移。
-- [v1.0.7](https://github.com/ncepuee/HZB-Skill/releases/tag/v1.0.7)：新增 `pdf-bookmark-migration`，PDF书签迁移工具，支持多级嵌套、XYZ坐标保留、批量处理。
-- [v1.0.6](https://github.com/ncepuee/HZB-Skill/releases/tag/v1.0.6)：新增 `patent-pdf-download`，批量下载专利全文PDF，多源回退策略；更新 `academic-ppt-infographic-cn-skill`。
-- [v1.0.5](https://github.com/ncepuee/HZB-Skill/releases/tag/v1.0.5)：新增 `route-simulink-schematics`，提供拓扑优先的 Simulink/Simscape 布局、三相成束布线与差分审计。
-- [v1.0.4](https://github.com/ncepuee/HZB-Skill/releases/tag/v1.0.4)：新增 `twitter-auto-publisher`，Chrome CDP 自动调研+发推，无需 Twitter API。
-- [v1.0.3](https://github.com/ncepuee/HZB-Skill/releases/tag/v1.0.3)：新增 `academic-ppt-infographic-cn-skill`，中文学术科技奖励PPT信息图生成。
-- [v1.0.2](https://github.com/ncepuee/HZB-Skill/releases/tag/v1.0.2)：新增 `scr-calculator`，短路比计算器，支持Lg↔SCR换算与电网强度分类。
-- [v1.0.1](https://github.com/ncepuee/HZB-Skill/releases/tag/v1.0.1)：版本对齐，发布 `multi-agent-comm` 至 GitHub Releases。
-- [v1.0.0](https://github.com/ncepuee/HZB-Skill/releases/tag/v1.0.0)：初始发布，包含 `multi-agent-comm`。
-
-## Simulink Connection Integrity
-
-`simulink-connection-integrity` 在模型修改前建立结构基线，在保存前检查内存模型，并在保存后直接检查 `.slx` 内部 XML。脚本不会自动保存、重连或覆盖模型。
-
-### 检查等级
-
-| Profile | 适用场景 | 检查内容 |
-|---------|----------|----------|
-| `fast` | 参数、Mask、回调、UserData 等日常修改 | 全模型线路、关键模块状态、保护契约；跳过编译和全量端口枚举 |
-| `standard` | 模块、端口、控制模式、Variant、PID 接线修改 | `fast` + 输入端口连接、悬空线、外部 PID 端口检查 |
-| `release` | Git 里程碑、正式扫频或发布前 | `standard` + 模型 Update/Compile，要求编译通过 |
-
-推荐工作流：
-
-```matlab
-userHome = getenv('USERPROFILE');
-if isempty(userHome)
-    userHome = getenv('HOME');
-end
-skillDir = fullfile(userHome, '.agents', 'skills', 'HZB-Skill', ...
-    'simulink-connection-integrity');
-addpath(fullfile(skillDir, 'scripts'));
-
-baselineFile = fullfile(tempdir, 'model_before_edit.mat');
-opts = struct('Profile', 'fast');
-
-simulink_connection_guard('baseline', modelFile, baselineFile, opts);
-
-% 在内存中修改模型，暂不保存。
-
-preSave = simulink_connection_guard('check', modelName, baselineFile, opts);
-assert(preSave.Passed);
-save_system(modelName);
-
-postSave = simulink_connection_guard( ...
-    'packagecheck', modelFile, baselineFile, opts);
-assert(postSave.Passed);
-```
-
-保护模型回调与 Mask 参数：
-
-```matlab
-opts.PreserveModelCallbacks = true;
-opts.ProtectedMaskParameters = { ...
-    'Model Initialization_new', ...
-    {'InitFcnX','prel','posl','inif','strf'} ...
-};
-```
-
-在包含 47,448 个模块、32,720 条连接的实际 Simulink 电路模型上，R2024b 测试结果为：`fast baseline` 约 22.2 秒，`fast check` 约 16.9 秒，保存后的 `packagecheck` 约 0.76 秒。
-
-## Upgrade Legacy Simulink Models
-
-`upgrade-legacy-simulink-models` 用于将旧版 `.slx/.mdl` 模型迁移到较新的 MATLAB/Simulink，同时保留可在原 MATLAB 版本运行的源模型。它区分“旧运行时保留”和“SPS 转原生 Simscape”两条路线，并要求加载、结构、Update、短仿真和行为对比逐级验收。
-
-```matlab
-userHome = getenv('USERPROFILE');
-if isempty(userHome)
-    userHome = getenv('HOME');
-end
-skillDir = fullfile(userHome, '.agents', 'skills', 'HZB-Skill', ...
-    'upgrade-legacy-simulink-models');
-addpath(fullfile(skillDir, 'scripts'));
-
-configure_release_filegen(fileparts(modelFile));
-inspect_upgrade_environment(modelFile);
-risk = scan_model_migration_risks(modelFile);
-result = validate_migrated_model(modelFile, ...
-    'ExpectedMode', 'native', 'SimulationStopTime', 0.02);
-assert(result.passed, result.summary);
-```
-
-Skill 已分别使用 MATLAB R2024b 的 SPS 源模型和 MATLAB R2026b 的原生 Simscape 迁移模型完成实测。
-
-## Usage
+## Installation
 
 ```bash
 git clone https://github.com/ncepuee/HZB-Skill.git ~/.agents/skills/HZB-Skill
@@ -150,6 +80,6 @@ git clone https://github.com/ncepuee/HZB-Skill.git ~/.agents/skills/HZB-Skill
 - ORCID: [0000-0002-0628-0387](https://orcid.org/0000-0002-0628-0387)
 - LinkedIn: [zhenbin-huang](https://www.linkedin.com/in/zhenbin-huang/)
 
-## License
+## Rights
 
-MIT License - Copyright (c) 2025-2026 Zhenbin Huang
+Author-created skill content is **All Rights Reserved**. Public visibility does not grant permission to copy, modify, redistribute, or use it commercially. See [LICENSE](LICENSE). Third-party names, excerpts, and materials remain subject to their respective terms.

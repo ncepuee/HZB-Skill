@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Usage and documentation
+    url: https://github.com/ncepuee/HZB-Skill/wiki
+    about: Check the Wiki and skill documentation before opening an issue.

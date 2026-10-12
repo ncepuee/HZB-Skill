@@ -1,0 +1,30 @@
+name: Bug report
+description: Report an incorrect or unsafe skill behavior
+labels: [bug]
+body:
+  - type: textarea
+    id: summary
+    attributes:
+      label: Problem
+      description: Describe the observed behavior and the expected behavior.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Minimal reproduction
+      description: Include the skill name, relevant steps, and sanitized output. Never include credentials or personal paths.
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      placeholder: Tool and version, operating system, and skill revision
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Privacy check
+      options:
+        - label: I removed credentials, personal paths, private hostnames/IP addresses, and identifying logs.
+          required: true
