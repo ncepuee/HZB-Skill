@@ -1,6 +1,6 @@
 name: Skill improvement
 description: Propose a skill, workflow, or documentation improvement
-labels: [enhancement, triage]
+labels: [enhancement]
 body:
   - type: textarea
     id: problem

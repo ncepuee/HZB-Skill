@@ -1,6 +1,6 @@
 name: Bug report
 description: Report an incorrect or unsafe skill behavior
-labels: [bug, triage]
+labels: [bug]
 body:
   - type: textarea
     id: summary

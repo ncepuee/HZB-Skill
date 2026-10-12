@@ -13,24 +13,6 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 README = ROOT / "README.md"
 VERSION = ROOT / "VERSION"
-TEXT_SUFFIXES = {
-    ".html",
-    ".js",
-    ".json",
-    ".m",
-    ".md",
-    ".ps1",
-    ".py",
-    ".sh",
-    ".toml",
-    ".txt",
-    ".ts",
-    ".xml",
-    ".yaml",
-    ".yml",
-}
-
-
 def fail(message: str) -> None:
     print(f"FAIL: {message}", file=sys.stderr)
     raise SystemExit(1)
@@ -106,13 +88,15 @@ count_match = re.search(r"^## Skills \((\d+) 个\)", readme, flags=re.MULTILINE)
 if not count_match or int(count_match.group(1)) != len(skill_dirs):
     fail("README skill count does not match the discovered skill directories")
 
+home_directory_segment = "Us" + "ers"
 private_patterns = (
-    r"(?i)\b[A-Z]:\\Users\\(?:hzb|hzblaptop)(?:\\|$)",
-    r"(?i)\bG:\\(?:Obnotes|RTWorkspace_24|Project_HZB|PythonProject|HZB-Skill)(?:\\|$)",
-    r"\b192\.168\.1\.(?:12|101|102)\b",
-    r"(?i)\bzhenbin_huang@163\.com\b",
+    rf"(?i)\b[A-Z]:\\{home_directory_segment}\\[^\\\s<>\"']+",
+    r"\b(?:10\.(?:\d{1,3}\.){2}\d{1,3}|172\.(?:1[6-9]|2\d|3[01])\.(?:\d{1,3}\.)\d{1,3}|192\.168\.(?:\d{1,3}\.)\d{1,3})\b",
+    r"(?i)\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.(?!example\.com\b|test\.invalid\b)[A-Z]{2,}\b",
     r"\bgh[pousr]_[A-Za-z0-9_]{30,}\b",
     r"\bsk-[A-Za-z0-9_-]{24,}\b",
+    r"\bAKIA[0-9A-Z]{16}\b",
+    r"\beyJ[A-Za-z0-9_-]{10,}\.[A-Za-z0-9_-]{10,}\.[A-Za-z0-9_-]{10,}\b",
 )
 
 for skill_dir in sorted(skill_dirs):
@@ -127,14 +111,21 @@ for skill_dir in sorted(skill_dirs):
     if not re.search(r"^name:\s*[^\s]+\s*$", front_matter, flags=re.MULTILINE):
         fail(f"{skill_file.relative_to(ROOT)} has no front-matter name")
 
-    # Scan all text-based skill resources, not just the entrypoint. Generic examples remain valid.
+    # Try strict UTF-8 decoding for every resource, independent of extension. Binary resources
+    # naturally fail decoding (or contain NUL bytes) and are skipped.
     for resource in (ROOT / skill_dir).rglob("*"):
-        if not resource.is_file() or resource.suffix.lower() not in TEXT_SUFFIXES:
+        if not resource.is_file():
             continue
         try:
-            resource_text = resource.read_text(encoding="utf-8")
+            with resource.open("rb") as stream:
+                resource_bytes = stream.read()
+            if b"\0" in resource_bytes:
+                continue
+            resource_text = resource_bytes.decode("utf-8")
         except UnicodeDecodeError:
             continue
+        except OSError as error:
+            fail(f"Could not read {resource.relative_to(ROOT)}: {error}")
         for pattern in private_patterns:
             if re.search(pattern, resource_text):
                 fail(
