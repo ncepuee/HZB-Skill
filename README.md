@@ -1,8 +1,25 @@
-# HZB-Skill
+<h1 align="center">HZB-Skill</h1>
 
-HZB's custom AI agent skills collection for Claude Code, Codex, and other AI coding tools.
+<p align="center">面向研究、工程和日常工作的实用 AI 智能体技能集合。</p>
 
-当前版本：[v1.6.0](https://github.com/ncepuee/HZB-Skill/releases/tag/v1.6.0)
+<p align="center">
+  <a href="https://openai.com/codex/"><img alt="Codex code support" src="https://img.shields.io/badge/Codex-Code_Support-orange?logo=openai&logoColor=white"></a>
+  <a href="https://openai.com/"><img alt="GPT-5 agent used @v1.7.0" src="https://img.shields.io/badge/GPT--5-Agent_used%40v1.7.0-412991?logo=openai&logoColor=white"></a>
+  <a href="https://github.com/ncepuee/HZB-Skill"><img alt="GitHub stars" src="https://img.shields.io/github/stars/ncepuee/HZB-Skill?logo=github&amp;cacheSeconds=86400"></a>
+</p>
+
+<p align="center">
+  <a href="https://github.com/ncepuee/HZB-Skill/releases/latest"><img alt="Latest release" src="https://img.shields.io/github/v/release/ncepuee/HZB-Skill?display_name=tag"></a>
+  <a href="https://github.com/ncepuee/HZB-Skill/actions/workflows/ci.yml"><img alt="CI" src="https://github.com/ncepuee/HZB-Skill/actions/workflows/ci.yml/badge.svg?branch=main"></a>
+  <a href="https://github.com/ncepuee/HZB-Skill/wiki"><img alt="Project wiki" src="https://img.shields.io/badge/Docs-Wiki-blue?logo=github"></a>
+  <img alt="All rights reserved" src="https://img.shields.io/badge/rights-All_rights_reserved-lightgrey">
+</p>
+
+<p align="center"><a href="https://github.com/ncepuee/HZB-Skill/wiki">Wiki</a> · <a href="https://github.com/ncepuee/HZB-Skill/releases">Releases</a> · <a href="https://github.com/ncepuee/HZB-Skill/issues">Issues</a> · <a href="CONTRIBUTING.md">Contributing</a> · <a href="CHANGELOG.md">Changelog</a></p>
+
+Current released version: [`v1.7.0`](https://github.com/ncepuee/HZB-Skill/releases/tag/v1.7.0)
+
+> **Development attribution:** Created and maintained by Zhenbin Huang; this release includes AI-assisted work using OpenAI Codex and GPT-5.
 
 ## Skills (32 个)
 
@@ -42,6 +59,8 @@ HZB's custom AI agent skills collection for Claude Code, Codex, and other AI cod
 | `tektronix-scope-analysis` | Tektronix Oscilloscopes | 通过用户提供的浏览器/VISA/SCPI 入口查看波形、采集校准数据并分析电气信号 |
 
 ## Releases
+
+- [v1.7.0](https://github.com/ncepuee/HZB-Skill/releases/tag/v1.7.0)：新增 `tektronix-scope-analysis`，用于安全连接 Tektronix 示波器、采集波形并开展可复核分析；补齐仓库 CI、Badge、权利声明与 Wiki 导航。
 
 - [v1.6.0](https://github.com/ncepuee/HZB-Skill/releases/tag/v1.6.0)：新增 `academic-visio-figure`，可编辑 Visio 科研绘图工作流，覆盖流程图、控制框图、电路与网络图、架构图的新建/重建/优化/审计，含样式契约、语义排版规则、结构审计脚本与可选项目风格 profile。
 
@@ -152,4 +171,4 @@ git clone https://github.com/ncepuee/HZB-Skill.git ~/.agents/skills/HZB-Skill
 
 ## License
 
-MIT License - Copyright (c) 2025-2026 Zhenbin Huang
+Project-authored skill content is **All Rights Reserved**; public visibility does not grant permission to copy, modify, redistribute, or commercially use it. See [LICENSE](LICENSE). Third-party names, excerpts, and materials remain subject to their respective owners' terms.

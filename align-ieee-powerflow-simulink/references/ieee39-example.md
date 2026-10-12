@@ -26,7 +26,7 @@ The final model used G39 directly on Bus39, no T39, Y/Y transformers, and `Rm=Lm
 
 ```matlab
 cfg = struct();
-cfg.projectRoot = 'G:\PythonProject\Matlab_VibeCode\Case_IEEE39';
+cfg.projectRoot = 'C:\path\to\Case_IEEE39';
 cfg.model = 'NE39bus_50Hz_24b_10SG_Full_Phasor';
 cfg.caseFunction = 'case_ieee39';
 cfg.solverFunction = 'pf_run_case';
