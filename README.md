@@ -4,7 +4,7 @@ HZB's custom AI agent skills collection for Claude Code, Codex, and other AI cod
 
 当前版本：[v1.6.0](https://github.com/ncepuee/HZB-Skill/releases/tag/v1.6.0)
 
-## Skills (31 个)
+## Skills (32 个)
 
 | Skill | 来源/书籍 | 核心内容 |
 |-------|----------|---------|
@@ -39,6 +39,7 @@ HZB's custom AI agent skills collection for Claude Code, Codex, and other AI cod
 | `image2ppt` | Image to Editable PowerPoint | 将图片、截图、信息图或PDF页面重建为高保真、可编辑的 PowerPoint，并通过渲染对比验收 |
 | `open-kimi-ppt` | Open Kimi PPT | 基于 PPTD 中间格式创建、编辑、复制、读取和导出可编辑演示文稿，同时生成 PPTD 项目与 PPTX |
 | `qiewenpaper-literature-search` | 切问学术 (Qiewenpaper) | 基于已登录切问学术账号的文献检索、对比、综述与引用整理，内置会话安全与额度保护边界 |
+| `tektronix-scope-analysis` | Tektronix Oscilloscopes | 通过用户提供的浏览器/VISA/SCPI 入口查看波形、采集校准数据并分析电气信号 |
 
 ## Releases
 

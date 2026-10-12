@@ -2,7 +2,6 @@
 name: multivariable-control
 description: "Multivariable feedback control analysis and design expert based on Skogestad & Postlethwaite's textbook. Use when working with MIMO systems, H-infinity control, mu-analysis, robust control design, SVD analysis, condition number, RGA, or any multivariable control theory problem."
 metadata:
-  author: HZB
   source: "Multivariable Feedback Control: Analysis and Design, 2nd Edition (Skogestad & Postlethwaite, 2005)"
   version: "1.0"
 ---

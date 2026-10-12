@@ -2,7 +2,6 @@
 name: control-beauty-vol2
 description: "The Beauty of Control Vol.2: Optimal Control, MPC, and Kalman Filter. Covers optimization fundamentals, LQR, LQG, dynamic programming, Bellman equation, Model Predictive Control (MPC), Kalman filter, and stochastic estimation. Use when working with optimal control design, state estimation, predictive control, or stochastic systems."
 metadata:
-  author: HZB
   source: "控制之美 第2卷：最优化控制MPC与卡尔曼滤波器 (吴昊天)"
   version: "1.0"
 ---

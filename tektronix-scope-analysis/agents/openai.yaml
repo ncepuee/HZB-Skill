@@ -1,0 +1,4 @@
+interface:
+  display_name: "Tektronix Scope Analysis"
+  short_description: "Inspect Tektronix scopes and analyze calibrated waveform data"
+  default_prompt: "Use $tektronix-scope-analysis to connect to this Tektronix oscilloscope, inspect its setup, and capture or analyze waveform data safely."

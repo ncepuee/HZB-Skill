@@ -61,7 +61,7 @@ powershell -ExecutionPolicy Bypass -File "<skill>/scripts/audit_visio_figure.ps1
   -RequireNoMedia
 ```
 
-Use `-ProfilePath "<profile.json>"` when a project has a stable house style. `profiles/hzb-paper-8pt-electrical.json` preserves the values learned in the originating workflow, but it must be selected explicitly and is not the default for other figures.
+Use `-ProfilePath "<profile.json>"` when a project has a stable house style. `profiles/electrical-paper-8pt.json` is an optional example profile; select it explicitly and do not treat its settings as defaults for other figures.
 
 ## Semantic text rules
 

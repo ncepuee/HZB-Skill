@@ -24,7 +24,7 @@ Run from PowerShell:
     'https://std.samr.gov.cn/gb/search/gbDetailed?id=...',
     'https://openstd.samr.gov.cn/bzgk/std/newGbInfo?hcno=...'
   ) `
-  -OutDir 'C:\Users\hzb\Downloads\许继国家标准' `
+  -OutDir '<output-folder>' `
   -GbTOnly
 ```
 
@@ -32,8 +32,8 @@ For saved browser source pages, pass file paths:
 
 ```powershell
 .\scripts\download-openstd-pdf.ps1 `
-  -Urls @('C:\Users\hzb\Downloads\许继国家标准\view-source_https___openstd...html') `
-  -OutDir 'C:\Users\hzb\Downloads\许继国家标准' `
+  -Urls @('<saved-html-file>') `
+  -OutDir '<output-folder>' `
   -GbTOnly
 ```
 

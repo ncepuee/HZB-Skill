@@ -29,7 +29,8 @@ Do not use `release` for every small edit. On large models, pair a pre-save in-m
 ## MATLAB Usage
 
 ```matlab
-skillDir = 'C:\Users\hzb\.agents\skills\HZB-Skill\simulink-connection-integrity';
+skillDir = fullfile(getenv('USERPROFILE'), '.agents', 'skills', ...
+    '<repository-folder>', 'simulink-connection-integrity');
 addpath(fullfile(skillDir, 'scripts'));
 ```
 

@@ -1,8 +1,7 @@
 ---
 name: patent-pdf-download
-description: Batch download patent full-text PDF files. Use when the user asks to download patent PDFs (single or batch) by Chinese application number (like ZL2022xxxxxxxx.X), publication number (like CNxxxxxxxB, USxxxxxxxxB2, EPxxxxxxxA1), or when they provide a list of patents from an IP inventory / 知识产权清单. Supports CN/US/EP/JP patents. Two-tier strategy: Google Patents API (fast, batch) + epub.cnipa.gov.cn (authoritative fallback via Playwright) + local disk search.
+description: "按申请号或公开号下载专利全文 PDF；适用于单篇或知识产权清单批量下载，支持多来源核验与失败回退。"
 ---
-
 # Patent PDF Download (Multi-Source)
 
 Batch download patent full-text PDFs. **Never give up after one source fails** — this skill maintains an ordered list of independent channels; if channel A fails for a particular patent, fall through to channel B, then C.
