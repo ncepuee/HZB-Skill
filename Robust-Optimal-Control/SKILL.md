@@ -2,7 +2,6 @@
 name: robust-optimal-control
 description: "Zhou, Doyle, Glover《Robust and Optimal Control》核心知识。涵盖 H∞ 控制、μ 综合、结构奇异值、模型降阶、鲁棒性能。当设计鲁棒控制器或进行不确定性分析时使用。"
 metadata:
-  author: HZB
   source: "Robust and Optimal Control (K. Zhou, J.C. Doyle, K. Glover, Prentice Hall, 1996)"
   version: "2.0"
 ---

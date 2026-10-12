@@ -14,8 +14,8 @@
  *
  * Usage:
  *   node export-pptd.mjs <projectDirOr.pptd> -o out.pptx
- *   node export-pptd.mjs ./xiaomi-yu7 -o yu7.pptx --cookie "session=..."
- *   node export-pptd.mjs ./xiaomi-yu7 -o yu7.pptx --no-sign   # may fail inside WASM if signature is verified
+ *   node export-pptd.mjs <project-dir> -o <output.pptx> --cookie "session=..."
+ *   node export-pptd.mjs <project-dir> -o <output.pptx> --no-sign
  *
  * Env:
  *   KIMI_COOKIE   auth cookie string for /apiv2/utils/v1/signatures

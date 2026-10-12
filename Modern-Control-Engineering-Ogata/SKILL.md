@@ -2,7 +2,6 @@
 name: ogata-modern-control-engineering
 description: "Katsuhiko Ogata《Modern Control Engineering》(5th Ed.) 核心知识。涵盖传递函数、状态空间、根轨迹、频域分析、PID 控制、状态反馈设计。当进行经典/现代控制系统分析与设计时使用。"
 metadata:
-  author: HZB
   source: "Modern Control Engineering, 5th Edition (Katsuhiko Ogata, Prentice Hall, 2010)"
   version: "2.0"
 ---

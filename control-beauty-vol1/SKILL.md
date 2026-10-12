@@ -2,7 +2,6 @@
 name: control-beauty-vol1
 description: "The Beauty of Control Vol.1: From Transfer Functions to State Space. Covers classical control theory, transfer functions, block diagrams, Bode plots, Nyquist criteria, root locus, state-space representation, controllability, observability, pole placement, and observer design. Use when working with SISO/MIMO control systems, frequency domain analysis, or state-space methods."
 metadata:
-  author: HZB
   source: "控制之美 第1卷：从传递函数到状态空间 (吴昊天)"
   version: "1.0"
 ---

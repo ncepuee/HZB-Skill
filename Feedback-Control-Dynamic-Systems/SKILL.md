@@ -2,7 +2,6 @@
 name: feedback-control-dynamic-systems
 description: "Franklin, Powell, Emami-Naeini《Feedback Control of Dynamic Systems》(7th Ed.) 核心知识。涵盖经典控制、根轨迹、频域设计、状态空间、数字控制。当进行反馈控制系统分析与设计时使用。"
 metadata:
-  author: HZB
   source: "Feedback Control of Dynamic Systems, 7th Edition (Franklin, Powell, Emami-Naeini, Pearson, 2014)"
   version: "2.0"
 ---

@@ -2,7 +2,6 @@
 name: lewis-optimal-control
 description: "F.L. Lewis《Optimal Control》(3rd Ed.) 核心知识。涵盖 LQR/LQG、动态规划、Pontryagin 原理、H∞ 控制、自适应控制。当设计最优控制器或求解最优控制问题时使用。"
 metadata:
-  author: HZB
   source: "Optimal Control, 3rd Edition (F.L. Lewis, V.L. Syrmos, Wiley, 2012)"
   version: "2.0"
 ---

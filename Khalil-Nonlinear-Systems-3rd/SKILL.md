@@ -2,7 +2,6 @@
 name: khalil-nonlinear-systems
 description: "Hassan K. Khalil《Nonlinear Systems》(3rd Ed.) 核心知识。涵盖 Lyapunov 稳定性、输入输出稳定性、无源性、反馈线性化、奇异摄动、中心流形等。当处理非线性系统分析、稳定性证明、反馈控制设计时使用。"
 metadata:
-  author: HZB
   source: "Nonlinear Systems, 3rd Edition (Hassan K. Khalil, Prentice Hall, 2002)"
   version: "2.0"
 ---

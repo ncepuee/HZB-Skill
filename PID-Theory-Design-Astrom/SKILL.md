@@ -2,7 +2,6 @@
 name: pid-theory-design-astrom
 description: "Karl J. Åström《PID Controllers》核心知识。涵盖 PID 理论、整定方法、实现技术、高级 PID 结构。当设计、整定或分析 PID 控制器时使用。"
 metadata:
-  author: HZB
   source: "PID Controllers: Theory, Design, and Tuning (Karl J. Åström, Tore Hägglund)"
   version: "2.0"
 ---

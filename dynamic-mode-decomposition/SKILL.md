@@ -2,7 +2,6 @@
 name: dynamic-mode-decomposition
 description: "Dynamic Mode Decomposition (DMD) data-driven modeling expert based on Kutz, Brunton et al. Covers DMD algorithm, exact DMD, optimized DMD, extended DMD, kernel DMD, online DMD, compressed DMD, and connections to Koopman operator theory. Use when working with spatiotemporal data analysis, fluid dynamics, power system dynamics, or data-driven dynamic modeling."
 metadata:
-  author: HZB
   source: "Dynamic Mode Decomposition: Data-Driven Modeling of Complex Systems (Kutz, Brunton, Brunton, Proctor, SIAM 2016)"
   version: "1.0"
 ---

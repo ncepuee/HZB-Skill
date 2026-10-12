@@ -2,7 +2,6 @@
 name: power-system-dynamics-control
 description: "Power System Dynamics and Control by Göran Andersson (ETH Zürich). Covers frequency dynamics, primary/secondary/tertiary frequency control, AGC, voltage control, excitation systems, FACTS devices, and power system stability. Use when working with power system frequency regulation, generator control, voltage stability, or power system dynamics."
 metadata:
-  author: HZB
   source: "Dynamics and Control of Electric Power Systems (Göran Andersson, ETH Zürich, 2012)"
   version: "1.0"
 ---
