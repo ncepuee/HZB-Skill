@@ -12,6 +12,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 README = ROOT / "README.md"
+README_ZH = ROOT / "README.zh-CN.md"
 VERSION = ROOT / "VERSION"
 def fail(message: str) -> None:
     print(f"FAIL: {message}", file=sys.stderr)
@@ -31,13 +32,20 @@ class BadgeParser(HTMLParser):
 
 
 readme = README.read_text(encoding="utf-8")
+readme_zh = README_ZH.read_text(encoding="utf-8")
 version = VERSION.read_text(encoding="utf-8").strip()
 if not re.fullmatch(r"\d+\.\d+\.\d+", version):
     fail("VERSION must contain one semantic version such as 1.7.0")
 
 release_match = re.search(r"Current released version:\s*\[`v([^`]+)`\]", readme)
-if not release_match or release_match.group(1) != version:
-    fail("README current released version does not match VERSION")
+release_match_zh = re.search(r"当前发布版本：\[`v([^`]+)`\]", readme_zh)
+if (
+    not release_match
+    or release_match.group(1) != version
+    or not release_match_zh
+    or release_match_zh.group(1) != version
+):
+    fail("README current released version does not match VERSION in both languages")
 if re.search(r"Agent_used%40v[^-/&\"]+", readme):
     version_badge = re.search(r"Agent_used%40v([^-/&\"]+)", readme)
     if not version_badge or version_badge.group(1) != version:
@@ -61,6 +69,15 @@ if "github/v/release/ncepuee/HZB-Skill" not in readme:
     fail("README release badge is missing")
 if "actions/workflows/ci.yml/badge.svg" not in readme:
     fail("README CI badge does not point to the repository CI workflow")
+if "actions/workflows/ci.yml/badge.svg" not in readme_zh:
+    fail("Chinese README CI badge does not point to the repository CI workflow")
+if "GPT--6-Agent_used%40GPT--6--Luna" not in readme or "GPT--6-Agent_used%40GPT--6--Luna" not in readme_zh:
+    fail("README model attribution badge must identify GPT-6-Luna in both languages")
+if "logo=openai" not in readme or "logo=openai" not in readme_zh:
+    fail("README GPT model badge must use the OpenAI logo in both languages")
+codex_badge_urls = re.findall(r"https://img\.shields\.io/badge/Codex-[^\"\s]+", readme + readme_zh)
+if len(codex_badge_urls) != 2 or any("data:image/svg%2bxml;base64," not in url for url in codex_badge_urls):
+    fail("Both README Codex badges must use the Codex brand icon, not the OpenAI logo")
 
 skill_dirs = {
     path.name
@@ -68,7 +85,7 @@ skill_dirs = {
     if path.is_dir() and (path / "SKILL.md").is_file()
 }
 catalog_match = re.search(
-    r"^## Skills \([^\n]+\)\s*\n(?P<table>.*?)(?=^## )",
+    r"^## Skills \(\d+\)\s*\n(?P<table>.*?)(?=^## )",
     readme,
     flags=re.MULTILINE | re.DOTALL,
 )
@@ -77,16 +94,43 @@ if not catalog_match:
 catalog_names = set(
     re.findall(r"^\| `([^`]+)` \|", catalog_match.group("table"), flags=re.MULTILINE)
 )
-if skill_dirs != catalog_names:
+catalog_match_zh = re.search(
+    r"^## 技能目录（\d+ 项）\s*\n(?P<table>.*?)(?=^## )",
+    readme_zh,
+    flags=re.MULTILINE | re.DOTALL,
+)
+if not catalog_match_zh:
+    fail("Chinese README skill catalog section is missing")
+catalog_names_zh = set(
+    re.findall(r"^\| `([^`]+)` \|", catalog_match_zh.group("table"), flags=re.MULTILINE)
+)
+if skill_dirs != catalog_names or skill_dirs != catalog_names_zh:
     fail(
-        "README skill catalog differs from skill directories; "
-        f"missing={sorted(skill_dirs - catalog_names)}, "
-        f"stale={sorted(catalog_names - skill_dirs)}"
+        "README skill catalogs differ from skill directories; "
+        f"English missing={sorted(skill_dirs - catalog_names)}, "
+        f"English stale={sorted(catalog_names - skill_dirs)}, "
+        f"Chinese missing={sorted(skill_dirs - catalog_names_zh)}, "
+        f"Chinese stale={sorted(catalog_names_zh - skill_dirs)}"
     )
 
-count_match = re.search(r"^## Skills \((\d+) 个\)", readme, flags=re.MULTILINE)
-if not count_match or int(count_match.group(1)) != len(skill_dirs):
-    fail("README skill count does not match the discovered skill directories")
+count_match = re.search(r"^## Skills \((\d+)\)", readme, flags=re.MULTILINE)
+count_match_zh = re.search(r"^## 技能目录（(\d+) 项）", readme_zh, flags=re.MULTILINE)
+if (
+    not count_match
+    or int(count_match.group(1)) != len(skill_dirs)
+    or not count_match_zh
+    or int(count_match_zh.group(1)) != len(skill_dirs)
+):
+    fail("English and Chinese README skill counts must match the discovered skill directories")
+
+for language_readme, language_name, language_link in (
+    (readme, "English", "README.zh-CN.md"),
+    (readme_zh, "中文", "README.md"),
+):
+    if language_link not in language_readme or language_name not in language_readme:
+        fail(f"README language switch is missing from {language_link}")
+    if re.search(r"^## (?:Simulink Connection Integrity|Upgrade Legacy Simulink Models)$", language_readme, re.MULTILINE):
+        fail("Individual skill deep-dives belong in their skill directories, not the root README")
 
 home_directory_segment = "Us" + "ers"
 private_patterns = (
