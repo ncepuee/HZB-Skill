@@ -64,7 +64,7 @@
 
 ## 发布版本
 
-- [v1.7.0](https://github.com/ncepuee/HZB-Skill/releases/tag/v1.7.0)：新增 `tektronix-scope-analysis`；补充仓库 CI、徽章、权利声明与 Wiki 导航。
+- [v1.7.0](https://github.com/ncepuee/HZB-Skill/releases/tag/v1.7.0)：新增 `tektronix-scope-analysis`；新增中英文 README、修正徽章，并补充仓库 CI、权利声明与 Wiki 导航。
 - 此前版本和完整变更见 [CHANGELOG](CHANGELOG.md) 与 [GitHub Releases](https://github.com/ncepuee/HZB-Skill/releases)。
 
 ## 安装

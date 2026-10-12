@@ -64,7 +64,7 @@ Each skill directory contains its own `SKILL.md`, scripts, references, and usage
 
 ## Releases
 
-- [v1.7.0](https://github.com/ncepuee/HZB-Skill/releases/tag/v1.7.0): adds `tektronix-scope-analysis`; adds repository CI, badges, rights notice, and Wiki navigation.
+- [v1.7.0](https://github.com/ncepuee/HZB-Skill/releases/tag/v1.7.0): adds `tektronix-scope-analysis`, synchronized English/Chinese README pages, corrected badges, repository CI, rights notice, and Wiki navigation.
 - See the [changelog](CHANGELOG.md) and [GitHub Releases](https://github.com/ncepuee/HZB-Skill/releases) for full history.
 
 ## Installation
